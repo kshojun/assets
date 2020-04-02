@@ -44,3 +44,7 @@ UTC=true
 # which postfix  
 /usr/sbin/sendmail
 ```
+
+### scp
+権限ないファイルを落とす   
+```ssh -i ~/xxx.pem w1 "sudo cat /var/log/nginx/xxx_api_access_log" > access_log1```
