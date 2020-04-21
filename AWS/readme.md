@@ -91,5 +91,10 @@ AWS Access Key ID [None]:
 AWS Secret Access Key [None]: 
 Default region name [None]: そのまま
 Default output format [None]: そのまま
-
 ```
+
+#### command
+```bash
+ aws s3 ls
+ ```
+
