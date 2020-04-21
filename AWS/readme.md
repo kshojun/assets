@@ -76,3 +76,20 @@ ISPが25ポートを利用したメール送信を制限すること
 ### CloudFront
 ■Cache Clear   
 - Create Invalidationsで/image/some.png
+
+### AWS CLI
+#### install
+```bash
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+sudo python get-pip.py
+sudo pip install awscli
+```
+#### setting
+```bash
+aws configure
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]: 
+Default region name [None]: そのまま
+Default output format [None]: そのまま
+
+```
