@@ -7,7 +7,7 @@ fuel/vendor/binにphinxコマンドができる
 
 上記コマンドが叩けない場合は以下を使う
 
-```/media/sf_xxx/vendor/robmorgan/phinx/bin```
+```php /media/sf_xxx/vendor/robmorgan/phinx/bin/phinx```
 
 phinx.ymlができるので、
 
