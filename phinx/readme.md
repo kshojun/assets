@@ -5,6 +5,10 @@ fuel/vendor/binにphinxコマンドができる
 
 ```$ fuel/vendor/bin/phinx init```
 
+上記コマンドが叩けない場合は以下を使う
+
+```/media/sf_xxx/vendor/robmorgan/phinx/bin```
+
 phinx.ymlができるので、
 
 migrations: '%%PHINX_CONFIG_DIR%%/db/migrations'を
