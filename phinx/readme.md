@@ -18,6 +18,10 @@ migrations: '%%PHINX_CONFIG_DIR%%/fuel/app/migrations'
 
 migrationsにxxxxx_add_sample.phpができる
 
+symfony/yamlが足りないときは
+
+```php74 composer.phar require  symfony/yaml  --update-with-all-dependencies```
+
 ```$ phinx status```
 
 ```
