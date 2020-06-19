@@ -47,6 +47,11 @@ server {
 を追加
 
 # BASIC認証
+APACHEじゃないので、htpasswdが使えないので入れる
+```
+$ sudo yum install httpd-tools
+```
+
 ```
 $ sudo htpasswd -c /etc/nginx/.htpasswd username
 New password: password
