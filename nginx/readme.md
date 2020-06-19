@@ -45,3 +45,23 @@ server {
 }
 ```
 を追加
+
+# BASIC認証
+```
+$ sudo htpasswd -c /etc/nginx/.htpasswd username
+New password: password
+Re-type new password: password
+Adding password for user username
+```
+
+```
+$ vi /etc/nginx/conf.d/xxx.conf
+location / {
+  auth_basic "Restricted"; 
+  auth_basic_user_file /etc/nginx/.htpasswd;
+}
+```
+
+```
+sudo systemctl restart nginx
+```
