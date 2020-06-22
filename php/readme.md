@@ -1,8 +1,8 @@
-- jsにデータを渡すとき、json_encodeはphp側ではなく、js側でやる。php側でやると&quot;が混ざる
+# jsにデータを渡すとき、json_encodeはphp側ではなく、js側でやる。php側でやると&quot;が混ざる
 ```javascript
 var a = JSON.parse('<?php echo json_encode($something, JSON_UNESCAPED_UNICODE); ?>');
 ```
-- メールアドレスチェック  
+# メールアドレスチェック  
 ```php
 private static function checkEmail($email) {
     switch ($email) {
@@ -15,10 +15,15 @@ private static function checkEmail($email) {
 }
 ```
 
-- アップロードさせるファイルサイズ指定
+# アップロードさせるファイルサイズ指定
 
 upload_max_filesize = default 2M   
 post_max_size = default 8M   
 upload_max_filesizeだけ大きくしてもpost_max_sizeに引っかかってうまくいかない   
 両方のパラメータをあげる必要がある。   
 upload_max_filesize < post_max_size
+
+# PHPDOC
+```composer require --dev phpdocumentor/phpdocumentor```
+
+```phpdoc run -d /コード -t /出力先```
