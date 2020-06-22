@@ -24,6 +24,12 @@ upload_max_filesizeだけ大きくしてもpost_max_sizeに引っかかってう
 upload_max_filesize < post_max_size
 
 # PHPDOC
-```composer require --dev phpdocumentor/phpdocumentor```
+```$ composer require --dev phpdocumentor/phpdocumentor```
 
-```phpdoc run -d /コード -t /出力先```
+```$ phpdoc run -d /コード -t /出力先```
+
+composerで入らないので、
+```$ cd vendor/bin```
+
+```$ wget http://phpdoc.org/phpDocumentor.phar```
+
