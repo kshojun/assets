@@ -29,9 +29,15 @@ upload_max_filesize < post_max_size
 ```$ phpdoc run -d /コード -t /出力先```
 
 composerで入らないので、
+
 ```$ cd vendor/bin```
 
 ```$ wget http://phpdoc.org/phpDocumentor.phar```
 
 308エラーになる場合は、ブラウザからDLしてWinSCPでコピーして使う
 
+```mv phpDocumentor.phar /media/sf_xxxx/fuel/vendor/bin```
+
+vendor/binを環境変数で実行可能にしておく
+
+phpDocumentor.pharで実行できる
