@@ -33,3 +33,5 @@ composerで入らないので、
 
 ```$ wget http://phpdoc.org/phpDocumentor.phar```
 
+308エラーになる場合は、ブラウザからDLしてWinSCPでコピーして使う
+
