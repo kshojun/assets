@@ -93,10 +93,12 @@ val ubyte: UByte = 255u
 ```
 
 # 数字を読みやすく
+```kotlin
 val number = 1_000_000
 val cardNumber = 1233_2222_3333_4444L
 val hex = 0xAB_CD_EF_FF
 val bytes = 0b1111_0000
+```
 
 # データ型の限界値
 - Byte.MIN_VALUE ~ Byte.MAX_VALUE
@@ -116,3 +118,56 @@ ALT + Insert
 
 # Auto Import
 ALT + Enter
+
+# $で文字列出力
+```kotlin
+val a = 1
+val s = "a is $a" // a is 1
+val str = "a = ${a + 2}" // a = 3
+```
+
+# nullを許容する場合
+```kotlin
+val a: Int? = null
+val b: String? = null
+```
+
+# Safe-Calling
+```kotlin
+val str = null
+str?.length // nullでない場合のみlengthを実行
+```
+
+# non-null断定
+```kotlin
+val str = null
+str!!.length // strがnullかどうかチェックさせない。NPEになるのでnon-null断定は使わないこと
+```
+
+# エルビス演算子
+```kotlin
+val str: String? = null
+println("str : ${str?.length ?: -1}") // A ?: B Aがfalseのとき、Bが実行される
+```
+
+# Casting
+```kotlin
+val a: Int = 1
+val b: Double = a.toDouble
+// 前にtoをつける
+```
+
+# ==, ===
+- == 値のみ比較
+- === 値と参照アドレスを比較 
+```kotlin
+val a: Int = 128
+val b: Int = 128
+val c: Int? = 128
+
+println(a == b) // true
+println(a === b) // true
+
+println(a == c) // true
+println(a === c) // false
+```
