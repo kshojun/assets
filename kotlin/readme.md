@@ -32,8 +32,87 @@ fun main() {
 ```
 Tools > Kotlin > REPLを選んでから実行するとうまくいく
 
+# 一般的なメモリ領域(JVMはもっと細かい)
+- Code 関数など
+- Data 初期化されたデータ
+- Heap(動的割り当て) クラスのインスタンス(Object)。不要になったらGC
+- Stack(臨時割り当て) 
 
+# 階層
+Project > Module > Package > File   
+Module指定しない場合はProjectと同名のModule   
+Package指定しない場合はdefaultというパッケージ
 
+# Package
+指定しない場合はdefault   
+package xxx.aaa.ccc   
+import xxx.aaa.ccc.Class   
+import xxx.aaa.ccc.Class as OtherClass
+
+# Other
+違うModuleにあるpackageはimportできないので、jarにする必要がある   
+ktファイルにclassが一つしかない場合はktが省略される   
+
+# 変数
+```kotlin
+val some: String = "abcde"
+val num: Int = 20
+val n: Float = 40.4
+```
+
+# val VS var
+- val(value) 不変
+- var(variable) 可変
+
+# 型の推論
+```kotlin
+val username = "AAAAA" // String
+val number = 10 // Int
+val e01 = 123 // Int
+val e2 = 123L // Long
+val e3 = 0x0F // 16進数Int
+val e4 = 0b00001111 // 2進数Int
+val e01 = 3.14 // Double
+val e02 = 3.14F // Float
+val isOpen = true // Boolean
+val ch = 'c' // Char
+```
+
+## プリミティブ型は使用できない
+
+# 整数型
+- 符号あり Long, Int, Short, Byte
+- 符号なし ULong, UInt, UShort, UByte
+
+# 符号なしデータ型
+```kotlin
+val uint: UInt = 123u
+val ushort: UShort = 65535u
+val ulong: ULong = 2323223uL
+val ubyte: UByte = 255u
+```
+
+# 数字を読みやすく
+val number = 1_000_000
+val cardNumber = 1233_2222_3333_4444L
+val hex = 0xAB_CD_EF_FF
+val bytes = 0b1111_0000
+
+# データ型の限界値
+- Byte.MIN_VALUE ~ Byte.MAX_VALUE
+- Short.MIN_VALUE ~ Short.MAX_VALUE
+- Int.MIN_VALUE ~ Int.MAX_VALUE
+- Long.MIN_VALUE ~ Long.MAX_VALUE
+- Float.MIN_VALUE ~ Float.MAX_VALUE
+- Double.MIN_VALUE ~ Double.MAX_VALUE
+
+# println
+```kotlin
+println("some: $some, num: $num")
+```
+
+# Insert File
+ALT + Insert
 
 # Auto Import
 ALT + Enter
