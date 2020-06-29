@@ -205,3 +205,50 @@ println("a : $a type : ${a.javaClass}")
 3.xor(bits)
 3.inv // すべて反転
 ```
+
+# 関数
+```kotlin
+fun sum(a: Int, b: Int): Int {
+    val sum = a + b
+    return sum
+}
+```
+
+# 簡素化
+```kotlin
+fun sum(a: Int, b: Int): Int = a + b
+fun sum(a: Int, b: Int) = a + b // Intに推論できるので省略
+```
+
+# デフォルト引数
+```kotlin
+fun sum_fun(a: Int, b: String = "default") {
+    println("a $a , b $b")
+}
+```
+
+# 引数の名前で渡すとデフォルト引数が最後じゃなくてもいい
+```kotlin
+fun main() {
+    namedFun(x = 200, z = 100)
+    namedFun(z = 150)
+}
+
+fun namedFun(x: Int = 100, y: Int = 200, z: Int) {
+    println(x + y + z)
+}
+```
+
+# 可変引数
+```kotlin
+fun varFun(vararg counts: Int) {
+    for (num in counts) {
+        println("$num")
+    }
+}
+
+fun main() {
+    varFun(1,2,3)
+    varFun(1,2)
+}
+```
