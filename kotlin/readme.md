@@ -252,3 +252,65 @@ fun main() {
     varFun(1,2)
 }
 ```
+
+## KotlinはOOP, FPいずれで書いてもいい
+
+# Functional Programming（関数型プログラミング）の特徴
+- コードが簡略、高い再利用性
+- ラムダ式、高次関数で構成
+- 純粋関数
+
+# 純粋関数
+- 副作用のない関数
+- 同じ入力引数に対して常に同じ結果を出力
+- 値が予測可能
+```kotlin
+fun sum(a: Int, b:Int): Int {
+    return a + b
+}
+```
+
+# 純粋関数でない例
+```kotlin
+fun test() {
+    val test = Some.funtion() // 外部のSomeクラスを使用
+}
+```
+```kotlin
+const val global = 10
+
+fun main() {
+    val result = someFun(1, 2)
+}
+
+fun someFun(a: Int, b: Int): Int {
+    return a + b + global // 入力と関係ない外部変数使用
+}
+```
+
+# 純粋関数を使う理由
+- いろんな関数を組み合わせても副作用がない
+- 関数の値を追跡し、予測可能なのでテストやデバッグがしやすい
+
+# ラムダ式（匿名関数）
+```kotlin
+{x, y -> x + y}
+```
+
+# First Class Citizen（一級オブジェクト）
+- 関数の引数で使える
+- 関数の返却値で使える
+- 変数に代入できる
+Kotlinの関数はFirst Class Citizen   
+
+# 高次関数(high order function)
+引数と返却値にラムダ式や関数を使う関数   
+```kotlin
+fun main() {
+    println(highFun({x, y -> x + y}, 10,20))
+}
+
+fun highFun(sum: (Int, Int) -> Int, a: Int, b: Int): Int {
+    return sum(a, b)
+}
+```
