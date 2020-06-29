@@ -171,3 +171,37 @@ println(a === b) // true
 println(a == c) // true
 println(a === c) // false
 ```
+
+# Smart Casting(自動キャスト）
+```kotlin
+var num: Number = 12.2
+num = 10
+num = 10L
+num = 10.0f
+```
+
+# is
+```kotlin
+val num = 123
+if (num is Int) {
+} else if (num !is Int) {
+}
+```
+
+# Any
+```kotlin
+var a: Any = 1
+a = 20L
+println("a : $a type : ${a.javaClass}")
+```
+
+# ビット演算
+```kotlin
+3.shl(bits) // 3.shl bits でもいい
+3.shr(bits)
+3.ushr(bits)
+3.and(bits)
+3.or(bits)
+3.xor(bits)
+3.inv // すべて反転
+```
