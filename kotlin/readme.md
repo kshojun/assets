@@ -344,3 +344,76 @@ val square: (Int) -> (Int) = { x -> x * x }
 val greet = { println("hello") }
 val square = { x: Int -> x * x }
 ```
+
+# 参照による呼び出し
+```kotlin
+fun main() {
+    val res = funcParam(1, 2, ::sum)
+    
+    hello(::text) // hello(text)ではエラー
+
+    val likeLambda = ::sum
+    println(likeLambda(3,3))
+}
+
+fun sum(a: Int, b: Int) = a + b
+
+fun text(a: String, b: String) = "Hello, $a $b"
+
+fun funcParam(a: Int, b: Int, c: (Int, Int) -> Int): Int {
+    return c(a,b)
+}
+
+fun hello(body: (String, String) -> String): Unit {
+    println(body("hello", "world"))
+}
+```
+
+# 引数の数によるラムダ式の呼び出し方
+```kotlin
+fun main() {
+    // 引数がない
+    noParam({"hello"})
+    noParam{"hello"}
+
+    // ひとつ
+    oneParam({a -> "hello $a"})
+    oneParam{a -> "hello $a"}
+    
+    // two
+    twoParam{a, b -> "hello $a $b"}
+    
+    // 引数を省略
+    twoParam{_, b -> "hello $b"}
+}
+
+fun noParam(out: () -> String) = println(out())
+
+fun oneParam(out: (String) -> String) {
+    println(out("one param"))
+}
+
+fun twoParam(out: (String, String) -> String) {
+    println(out("one", "two"))
+}
+```
+
+# ラムダ式引数を最後に持ってくると外に出せる
+```kotlin
+fun main() {
+    withArgs("a", "b", {a, b -> "$a $b"})
+    withArgs("a", "b") {a, b -> "$a $b"}
+    
+    twoLambda({a, b -> "$a $b"}, {"aa"})
+    twoLambda({a, b -> "$a $b"}) {"aa"}
+}
+
+fun withArgs(a: String, b: String, out: (String, String) -> String) {
+    println(out(a, b))
+}
+
+fun twoLambda(first: (String, String) -> String, second: (String) -> String) {
+    println(first("a", "b"))
+    println(second("a"))
+}
+```
