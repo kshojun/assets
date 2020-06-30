@@ -314,3 +314,33 @@ fun highFun(sum: (Int, Int) -> Int, a: Int, b: Int): Int {
     return sum(a, b)
 }
 ```
+
+# ラムダ式の書き方いろいろ
+```kotlin
+val multi: (Int, Int) -> Int = {x: Int, y: Int -> x * y}
+
+// 表現式が2行以上
+val multi: (Int, Int) -> Int = {x: Int, y: Int -> 
+    println(x * y)
+    x * y // 最後が返却される
+}
+
+// 宣言データ型を省略
+val multi = {x: Int, y: Int -> x * y}
+
+// 引数のデータ型を省略
+val multi: (Int, Int) -> Int = {x, y -> x * y}
+
+// エラー。データ型が推論できない
+val multi　= {x, y -> x * y}
+
+// 返却値ない
+val greet: () -> Unit = { println("hello") }
+
+// 引数がひとつのみ
+val square: (Int) -> (Int) = { x -> x * x }
+
+// 宣言部の省略
+val greet = { println("hello") }
+val square = { x: Int -> x * x }
+```
