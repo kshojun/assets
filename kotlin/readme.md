@@ -417,3 +417,71 @@ fun twoLambda(first: (String, String) -> String, second: (String) -> String) {
     println(second("a"))
 }
 ```
+
+# ラムダ式の活用事例　１．ロック機構
+```java
+// JavaのLock, ReentrantLock
+Lock lock = new ReentrantLock();
+lock.lock();
+try {
+    // 保護すべきコード
+} finally {
+    lock.unlock();
+}
+```
+
+```kotlin
+var sharable = 1 // 保護すべきもの
+
+fun <T> lock(relock: ReentrantLock, body: () -> T): T {
+    relock.lock()
+    try {
+        return body()
+    } finally {
+        relock.unlock
+    }
+}
+
+fun main() {
+    val relock = ReentrantLock()
+    
+    lock(relock, {critical})
+    lock(relock) {critical}
+    lock(relock, ::critical)
+}
+
+fun critical() {
+    shareable += 1
+}
+```
+
+# ラムダ式の活用事例　２．ネットワークのコールバック関数
+```kotlin
+fun networkCall(onSuccess: (ResultType) -> Unit, onError: (Throwable) -> Unit) {
+    try {
+        onSuccess(result)
+    } catch (e: Throwable) {
+        onError(e)
+    }
+}
+
+networkCall(result -> {
+
+}, error -> {
+
+});
+```
+
+# 匿名関数
+```kotlin
+fun (x: Int, y: Int): Int = x + y
+
+val add: (Int, Int) -> Int = fun(x, y) = x + y
+val result = add(1,2)
+
+val add = fun(x: Int, y: Int) = x + y // anonymouse function
+val add = {x: Int, y: Int -> x + y} // lambda
+
+// 匿名関数はreturn, break, continueが使用可能
+// ラムダ式は使えないので、ラベルと一緒に使わないといけない
+```
