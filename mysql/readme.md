@@ -52,3 +52,11 @@ character-set-server=utf8
 default_password_lifetime=0
 $ sudo systemctl restart mysqld
 ```
+
+### rootパスワードをリセット
+mysqld_safeはなくなった   
+```
+$ systemctl stop mysqld
+$ systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+$ systemctl start mysqld
+```
