@@ -485,3 +485,30 @@ val add = {x: Int, y: Int -> x + y} // lambda
 // 匿名関数はreturn, break, continueが使用可能
 // ラムダ式は使えないので、ラベルと一緒に使わないといけない
 ```
+
+# infix notation
+```kotlin
+// メンバーメソッド又は拡張メソッド
+// 引数を一つ
+// infixキーワードを使用
+// . と()を省略できる
+
+fun main() {
+    // val multi = 3.multiply(10)
+    val multi = 3 multiply 10
+}
+
+infix fun Int.multiply(x: Int): Int {
+    return this * x;
+}
+```
+
+# local function
+```kotlin
+// ローカル関数はローカル関数の中でしか使えない
+fun a() {
+    fun b() = c() // error c()を認識できない
+    fun c() = println("c")
+}
+```
+
