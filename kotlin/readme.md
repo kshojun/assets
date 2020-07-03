@@ -572,3 +572,28 @@ when (obj) {
     else -> print("unknown")
 }
 ```
+
+# for
+```kotlin
+val sum = 0
+for (x in 1..10) sum += x
+for (x in 10 downTo 1) sum += x
+for (x in 1..10 step 2) print x
+for (x in 5 downTo 1 step 2) print x
+```
+
+# do-while
+```kotlin
+do {
+    print("integer: ")
+    val input = readLine()!!.toInt()
+    println("input : $input")
+} while (input != 0)
+```
+
+# 例外処理
+```kotlin
+catch (e: Exception) {
+    e.printStackTrace()
+}
+```
