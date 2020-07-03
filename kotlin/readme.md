@@ -512,3 +512,63 @@ fun a() {
 }
 ```
 
+# 変数に条件文を代入
+```kotlin
+val a = 1
+val b = 2
+val max = if (a > b) {
+   a
+} else {
+   b
+}
+```
+
+# range 演算子
+```kotlin
+print("Enter the score:")
+val score = readLine()!!.toInt()
+
+if (score in 20..40) { // score >= 20 && score <= 40
+}
+```
+
+# when
+```kotlin
+when (x) {
+   1 -> print("1")
+   2 -> print("2")
+   3, 4 -> print("3 or 4")
+   parseInt(s) -> print("関数の返却値をそのまま")
+   in 5..10 -> print("5 ~ 10")
+   !in 11..13 -> print("not 11 ~ 13")
+   else -> {
+       print("else")
+   }  
+}
+
+val str = "hello"
+val result = when (str) {
+    is String -> "String"
+    else -> false
+}
+```
+
+# 引数のないwhen
+```kotlin
+val score = readLine()!!.toInt()
+val grade: Char = 'F'
+when {
+    score >= 90 -> grade = 'A'
+    score in 80..89 -> grade = 'B'
+    score < 70 -> grade = 'F'
+}
+
+val obj: Any
+when (obj) {
+    1 -> print("int")
+    "hello" -> print("string")
+    is Long -> print("long")
+    !is String -> print("not string")
+    else -> print("unknown")
+}
+```
