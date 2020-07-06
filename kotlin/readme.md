@@ -597,3 +597,48 @@ catch (e: Exception) {
     e.printStackTrace()
 }
 ```
+
+# constructor
+```kotlin
+class Bird {
+    var name: String
+    var color: String
+    var wing: Int
+    constructor(_name: String, _color: String) {
+        this.name = _name // name = _name
+        this.color = _color // color = _color
+    }
+    
+    constructor(_name: Stirng, _wing: Int) {
+        name = _name
+        wing = _wing
+    }
+    
+    fun fly() = println("fly")
+}
+
+// constructor省略
+class Bird(_name: String, _wing: Int, _color: String) {
+    var name: String = _name
+    var wing: Int = _wing
+    var color: String = _color
+    
+    fun fly() = println("ff")
+}
+
+// プロパティも省略可能
+class Bird(var name: String = "noname", var wing: Int = 2, var color: String) {
+    init {
+        println("初期化時に呼び出される")
+    }
+
+    fun fly() = println("ff")
+}
+
+fun main() {
+    val coco = Bird("bird", "blue")
+    val coco2 = Bird("bird", 2)
+    
+    val coco3 = Bird(name = "aaa", color = "blue")
+}
+```
