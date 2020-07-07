@@ -848,8 +848,51 @@ fun main() {
 }
 ```
 
-# Getter / Setter 2
+# Getter / Setterをカスタマイズ
+```kotlin
 class User(_id: Int, _name: String, _age: Int) {
+    private var temp: String? = null
+
     val id: Int = _id
-        get()
+        get() = field // 特にいじらないので省略可能  valなのでsetterは不要
+        
+    var name: String = _name
+        get() {
+            if (temp == null) temp = "noname"
+            return temp ?: throw AssertionError("assert")
+        }
+        set(value) {
+            println("name has changed")
+            field = value.toUpperCase()
+        }
+
+    var age: Int = _age
+        get() = field // 特にいじらないので省略可能
+        set(value) {
+            field = value + 10
+        }
 }
+```
+
+# Property Overriding
+```kotlin
+open class First {
+    open val x: Int = 0
+    get() {
+        return field
+    }
+}
+
+class Second : First() {
+    override val x: Int = 0
+    get() {
+        return field + 3
+    }
+}
+```
+
+# lateinit
+```kotlin
+// 依存性のある初期化、ユニットテストのための臨時コード
+// Carの初期化にEngineが必要だが、Engineがないと初期化できない場合
+```
