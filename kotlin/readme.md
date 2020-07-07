@@ -687,3 +687,47 @@ fun add(x: Double, y: Double): Double{
     return x + y
 }
 ```
+
+# super@
+```kotlin
+open class Base {
+    open val x: Int = 1
+    open fun f() { } // 3
+}
+
+class Child : Base() {
+    override val x: Int = super.x + 1
+    override fun f() {} // 2
+    
+    inner class Inside {
+        fun f() { } // 1
+        fun test() {
+            f() // 1
+            Child().f() // 2
+            super@Child.f() // 3
+            println("${super@Child.x}")
+        }
+    }
+}
+```
+
+# <>による名前重複解決
+```kotlin
+open class A {
+    open fun f() {}
+}
+
+// interfaceは基本的にopen
+interface B {
+    fun f() {}
+}
+
+class C : A(), B {
+    override fun f() {} // 1
+    fun test() {
+        f() // 1
+        super<A>.f()
+        super<B>.f() 
+    }
+}
+```
