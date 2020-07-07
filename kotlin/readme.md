@@ -731,3 +731,125 @@ class C : A(), B {
     }
 }
 ```
+
+# Relationship
+```kotlin
+// 関連(弱い結合)  Doctor  0..*   0..*  Patient
+class Patient(val name: String) {
+    fun doctorList(d: Doctor) {}
+}
+
+class Doctor(val name: String) {
+    fun patientList(p: Patient) {}
+}
+
+fun main() {
+    val doc = Doctor("a")
+    val pa = Patient("p")
+    doc.patientList(pa)
+    pa.doctorList(doc)
+}
+
+// 依存(強い結合)  Doctor A   Patient
+class Patient(val name: String, var id: Int) {
+    fun doctorList(d: Doctor) {}
+}
+
+class Doctor(val name: String, val p: Patient) {
+    val customId: Int = p.id
+    fun patientList() {}
+}
+
+fun main() {
+    val pa = Patient("abc", 123)
+    val doc = Doctor("doctor", pa)
+    doc.patientList()
+}
+
+// 集合 Pond  0..1  has  0..*  Duck
+class Pond(_name: String, _members: MutableList<Duck>) {
+    val name: String = _name
+    val members: MutableList<Duck> = _members
+    constructor(_name: String) : this(_name, mutableList<Duck>())
+}
+
+class Duck(val name: String)
+
+fun main() {
+    val pond = Pond("aa")
+    val duck = Duck("duck")
+    val duck2 = Duck("duck2")
+    pond.members.add(duck)
+    pond.members.add(duck2)
+}
+
+// 構成 Car   0..1  owns    1..1  Engine
+class Car(val name: String, val power: String) {
+    private var engine = Engine(power)
+    
+    fun startEngine() = engins.start()
+}
+
+class Engine(power: String) {
+    fun start() {}
+}
+
+fun main() {
+    val car = Car("aa", "100")
+    car.startEngine()
+}
+```
+
+# Getter / Setter
+```java
+// JavaではFieldを定義し、Fieldのアクセスメソッドを作る必要がある
+class Person {
+    private String name;
+    private int age;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+// Kotlinではアクセスメソッドを省略できる
+class User(_id: Int, _name: String, _age: Int) {
+    val id: Int = _id
+    var name: String = _name
+    var age: Int = _age
+}
+
+// もっと簡略化
+class User(val id: Int, var name: String, var age: Int)
+
+fun main() {
+    val user = User(1, "a", 30)
+    // 内部的にはgetter
+    val name = user.name
+    // 内部的にはsetter
+    user.age = 40
+}
+```
+
+# Getter / Setter 2
+class User(_id: Int, _name: String, _age: Int) {
+    val id: Int = _id
+        get()
+}
