@@ -642,3 +642,48 @@ fun main() {
     val coco3 = Bird(name = "aaa", color = "blue")
 }
 ```
+
+# 継承
+```kotlin
+open class Bird(var name: String, var wing: Int, var beak: String, var color: String) {
+    fun fly() = println("fly $wing")
+}
+
+class Lark(name: String, wing: Int, beak: String, color: String) : Bird(name, wing, beak, color) {
+    fun sing() = println("sing") // New method
+}
+
+class Parrot : Bird {
+    val language: String
+    
+    constructor(name: String, wing: Int, beak: String, color: String, language: String) : super(name, wing, beak, color) {
+        this.language = language // New property
+    }
+    
+    fun speak() = println("speak")
+}
+```
+
+# overriding
+```kotlin
+open class Bird {
+    fun fly() {} // override不可
+    open fun sing() { }
+}
+
+open class Lark : Bird() {
+    fun fly() {} // error!
+    final override fun sing() { } // 下位クラスではオーバーライド禁止
+}
+```
+
+# overloading
+```kotlin
+fun add(x: Int, y: Int): Int{
+    return x + y
+}
+
+fun add(x: Double, y: Double): Double{
+    return x + y
+}
+```
