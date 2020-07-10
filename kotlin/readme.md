@@ -961,3 +961,42 @@ fun main() {
     println(Person.name) // インスタンス生成してないので、エラー
 }
 ```
+
+# const
+```kotlin
+// いずれも変更できないが、constがついてるとコンパイル時、ついてないと実行時、にメモリが割り当てられる
+const val LEVEL = 1 // constはStringとPrimitive型に使える
+val name = "abc"
+```
+
+# object(Companion Objectと似てる, インスタンス生成なしでアクセスできる)
+```kotlin
+// constructorは使用できない
+object Customer {
+    var name = "aaa"
+    fun greeting() = println("greet")
+}
+fun main() {
+    Customer.name = "aaaa"
+    Customer.greeting()
+}
+```
+
+# object 2
+```kotlin
+open class Superman() {
+    fun work() {}
+    fun talk() {}
+    open fun fly() {}
+}
+
+fun main() {
+    // 継承なしでメソッドを再定義
+    val man = object: Superman() {
+        override fun fly = println("can override")
+    }
+    man.work()
+    man.talk()
+    man.fly()
+}
+```
