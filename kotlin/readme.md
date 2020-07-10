@@ -1000,3 +1000,32 @@ fun main() {
     man.fly()
 }
 ```
+
+# Interface
+```kotlin
+interface Pet {
+    // abstractなくても抽象プロパティ
+    var category: String
+    // プロパティに値を持てないが、getterを使えば値を返却できる
+    val msg: String
+        get() = "aaaaaa"    
+    // abstractなくても抽象メソッド   
+    fun feeding()
+    // 中身を定義すると一般メソッドになる
+    fun patting() {
+        println("petting")
+    }
+}
+
+class Cat(override category: String) : Pet {
+    override fun feeding() {
+        println("aaa")
+    }
+}
+
+fun main() {
+    val obj = Cat("aaa")
+    obj.feeding()
+    obj.patting()
+}
+```
