@@ -895,4 +895,69 @@ class Second : First() {
 ```kotlin
 // 依存性のある初期化、ユニットテストのための臨時コード
 // Carの初期化にEngineが必要だが、Engineがないと初期化できない場合
+
+class Person {
+    lastinit var name: String
+}
+
+fun main() {
+    val person = Person()
+    person.name = "abc"
+}
+
+// オブジェクト自体を遅延初期化
+data class Person(var name: String)
+lateinit var person: Person
+fun main() {
+    person = Person("abc")
+}
+```
+
+# lazy
+```kotlin
+// valに使用（Read-only)
+
+class Lazy {
+    // アクセスされたとき、初期化される
+    val some by lazy {
+        "something"
+    }
+}
+
+class Person(val name: String)
+
+fun main() {
+    val a = Lazy()
+    println("a $a.some")
+    
+    val person: Person by lazy {
+        Person("abc")
+    }
+}
+```
+
+# 委任
+```kotlin
+// kotlinのライブラリはopenついてないので継承できない
+// 継承できないので、機能拡張ができない
+// 委任を使えば、継承してないが、すべての機能を使えるし、機能拡張ができる
+```
+
+# Companion Object(=static)
+```kotlin
+class Person {
+    var id: Int = 0
+    var name: String = "abc"
+    companion object {
+        var language: String = "aaa"
+        fun work() {
+            println("working")
+        }
+    }
+}
+
+fun main() {
+    println(Person.language) // インスタンス生成なしでアクセスできる
+    println(Person.name) // インスタンス生成してないので、エラー
+}
 ```
