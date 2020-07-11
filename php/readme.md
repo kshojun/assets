@@ -41,3 +41,13 @@ composerで入らないので、
 vendor/binを環境変数で実行可能にしておく
 
 phpDocumentor.pharで実行できる
+
+# PHP7.4
+```bash
+$ yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+$ yum install -y --enablerepo=remi-php74 php which
+$ php -v
+PHP 7.4.8 (cli) (built: Jul  9 2020 08:57:23) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+```
