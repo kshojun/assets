@@ -57,6 +57,8 @@ UTC=true
 @server
 # ユーザー追加
 $ useradd [username]
+# sudoになるとき使うパスワード
+$ passwd [username] 
 # sudo権限与える
 $ usermod -G wheel [username]
 # group確認
