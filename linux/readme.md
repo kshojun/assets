@@ -48,3 +48,29 @@ UTC=true
 ### scp
 権限ないファイルを落とす   
 ```ssh -i ~/xxx.pem w1 "sudo cat /var/log/nginx/xxx_api_access_log" > access_log1```
+
+### SSHの接続アカウント発行
+```bash
+@client
+# PuttyGenで鍵ペアを作る
+
+@server
+# ユーザー追加
+$ useradd [username]
+# sudo権限与える
+$ usermod -G wheel [username]
+# group確認
+$ groups [username] or id [username]
+
+$ mkdir /home/[username]/.ssh
+$ chmod 700 /home/[username]/.ssh
+$ chown <ユーザー名> /home/<ユーザー名>/.ssh
+$ chgrp <ユーザー名> /home/<ユーザー名>/.ssh
+$ cd /home/[username]/.ssh
+# 公開鍵を保存
+$ cat [public key] > /home/[username]/authorized_keys 
+
+$ chmod 600 /home/<ユーザー名>/.ssh/authorized_keys
+$ chown <ユーザー名> /home/<ユーザー名>/.ssh/authorized_keys
+$ chgrp <ユーザー名> /home/<ユーザー名>/.ssh/authorized_keys
+```
