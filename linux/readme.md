@@ -68,7 +68,8 @@ $ chown <ユーザー名> /home/<ユーザー名>/.ssh
 $ chgrp <ユーザー名> /home/<ユーザー名>/.ssh
 $ cd /home/[username]/.ssh
 # 公開鍵を保存
-$ cat [public key] > /home/[username]/authorized_keys 
+$ cat [public key] > /home/[username]/authorized_keys  <-- これはダメ
+# puttyGenの文字列をそのままコピーし、authorized_keysに貼り付ける（改行が含まれないように）
 
 $ chmod 600 /home/<ユーザー名>/.ssh/authorized_keys
 $ chown <ユーザー名> /home/<ユーザー名>/.ssh/authorized_keys
