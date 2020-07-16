@@ -1,4 +1,4 @@
-### timezone変更
+# timezone変更
 ```
 # date  
 Tue Dec 17 10:07:12 UTC 2019  
@@ -34,7 +34,7 @@ UTC=true
 あと、crondも再起動しないといけない  
 ```systemctl restart crond```
 
-### postfix
+# postfix
 ```
 # yum install postfix  
 # systemctl start postfix
@@ -45,11 +45,11 @@ UTC=true
 /usr/sbin/sendmail
 ```
 
-### scp
+# scp
 権限ないファイルを落とす   
 ```ssh -i ~/xxx.pem w1 "sudo cat /var/log/nginx/xxx_api_access_log" > access_log1```
 
-### SSHの接続アカウント発行
+# SSHの接続アカウント発行
 ```bash
 @client
 # PuttyGenで鍵ペアを作る
