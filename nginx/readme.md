@@ -70,3 +70,14 @@ location / {
 ```
 sudo systemctl restart nginx
 ```
+
+# IP制限
+```nginx
+# ALB経由の場合も実IPを取得
+set_real_ip_from 0.0.0.0/0;
+real_ip_header X-Forwarded-For;
+real_ip_recursive on;
+
+allow 223.XXX.XXX.XXX;
+deny all;
+```
