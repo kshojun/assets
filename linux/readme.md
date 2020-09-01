@@ -77,3 +77,14 @@ $ chmod 600 /home/<ユーザー名>/.ssh/authorized_keys
 $ chown <ユーザー名> /home/<ユーザー名>/.ssh/authorized_keys
 $ chgrp <ユーザー名> /home/<ユーザー名>/.ssh/authorized_keys
 ```
+
+# ImageMagick Installation
+```bash
+$ yum install -y ImageMagick
+$ convert -version
+Version: ImageMagick 6.9.10-68 Q16 x86_64 2020-04-01 https://imagemagick.org
+Copyright: © 1999-2019 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC Modules OpenMP(3.1) 
+Delegates (built-in): bzlib cairo fontconfig freetype gslib jng jpeg lcms ltdl lzma openexr pangocairo png ps rsvg tiff wmf x xml zlib
+```
