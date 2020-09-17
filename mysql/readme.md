@@ -60,3 +60,11 @@ $ systemctl stop mysqld
 $ systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
 $ systemctl start mysqld
 ```
+
+### Slow query
+```
+[mysqld]
+slow_query_log=ON
+long_query_time = 2
+slow_query_log_file = /var/log/slow_query.log
+```
