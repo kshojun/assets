@@ -68,3 +68,12 @@ slow_query_log=ON
 long_query_time = 2
 slow_query_log_file = /var/log/slow_query.log
 ```
+
+### ぶっ壊れたら
+```
+datadirに行ってIB系ファイルとDBディレクトリを消す
+cd /var/lib/mysql
+rm ibdata1 ib_logfile0 ib_logfile1
+rm -rf [db]
+systemctl restart mysqld
+```
