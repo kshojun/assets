@@ -76,4 +76,10 @@ cd /var/lib/mysql
 rm ibdata1 ib_logfile0 ib_logfile1
 rm -rf [db]
 systemctl restart mysqld
+
+データディレクトリごと消す
+rm -rf /var/lib/mysql
+systemctl start mysqld
+cat /var/log/mysqld.log | grep 'temporary password'
+ログインできるはず
 ```
