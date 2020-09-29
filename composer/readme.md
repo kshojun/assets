@@ -16,9 +16,9 @@ versionをあげて再度やってみる
 
 ### メモリ不足の場合
 ```bash
-sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
-sudo /sbin/mkswap /var/swap.1
-sudo /sbin/swapon /var/swap.1
+ /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+ /sbin/mkswap /var/swap.1
+ /sbin/swapon /var/swap.1
 ```
 
 
