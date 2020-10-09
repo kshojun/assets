@@ -55,3 +55,52 @@ fruits.push(11);
 console.log(fruits.indexOf(1)); //  0
 console.log(fruits.lastIndexOf(1)); // 6
 ```
+
+# Array APIs
+```js
+// join
+const fruits = [1, 2, 3];
+const string = fruits.join('|'); // 1|2|3
+
+// split
+const fruits = '1,2,3';
+const array = fruits.split(','); // [1,2,3]
+const array = fruits.split(',', 2); // [1,2]
+
+// reverse
+const fruits = [1, 2, 3];
+const result = fruits.reverse(); // [3,2,1] 返却値もfruits自体も変わる
+
+// splice
+const fruits = [1, 2, 3, 4, 5];
+const result = fruits.splice(2); // result [3,4,5]  fruits [1,2]
+
+// slice
+const result = fruits.slice(2, 5); // result [3,4,5] fruits [1,2,3,4,5]
+
+// find
+class Student {
+  constructor(name, age, enrolled, score) {
+    this.name = name;
+    this.age = age;
+    this.enrolled = enrolled;
+    this.score = score;
+  }
+}
+
+const students = [
+  new Student('A',29,true,45),//1 
+  new Student('B',28,false,80),//2
+  new Student('C',30,true,90),//3
+];
+
+const result = students.find(function(item, index) {
+  return item.score === 90;
+});
+
+// arrow function
+const result = students.find((item) => item.score === 90); // 3
+
+// filter
+const result = students.filter((student) => student.enrolled); // 1,3
+```
