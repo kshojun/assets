@@ -20,3 +20,14 @@
 5. nodejs使いたいのでいれる  
 ```apt-get update```  
 ```apt-get install nodejs```
+
+# 入れるべきExtensions
+1. Material Theme : 環境テーマ
+2. Material Icon Theme : ファイル種類をアイコン表示
+3. Prettier - Code formatter : コード自動整列
+4. Bracket Pair Colorizer : ブロック括弧を色分け
+5. indent-rainbow : インデントをレインボー色で鮮やかに
+6. Auto Rename Tag : 開くタグと閉じるタグを同時修正
+7. CSS Peek
+8. HTML CSS SUPORT : CSS内容を自動補完
+9. LIVE SERVER
