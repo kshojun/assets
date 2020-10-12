@@ -152,3 +152,176 @@ const obj = JSON.parse(json, (key, value) => {
   return key === 'birthDate' ? new Date(value) : value;
 });
 ```
+
+# Callback
+```js
+// 1 3 2
+console.log(1);
+setTimeout(() => console.log(2), 1000);
+console.log(3);
+
+// sync callback
+function printCallback(print) {
+  // そのまま実行
+  print();
+}
+
+printCallback(() => console.log('hello'));
+
+// async callback
+function printDelay(print, second) {
+  setTimeout(print, second);
+}
+
+printDelay(() => console.log('delayed'), 1000);
+```
+
+# Callback Hell Example
+```js
+class UserStorage {
+  loginUser(id, password, onSuccess, onError) {
+    setTimeout(() => {
+      if (id === 'abc') {
+        onSuccess(id);
+      } else {
+        onError(new Error('not found'));
+      }
+    }, 2000);
+  }
+  
+  getRoles(user, onSuccess, onError) {
+    setTimeout(() => {
+      if (user === 'abc') {
+        onSuccess({name: 'abc', role: 'admin'});
+      } else {
+        onError(new Error('no access'));
+      }
+    }, 1000);
+  }
+}
+
+// arrow funcは引数ひとつのときは省略可能
+const userStorage = new UserStorage();
+const id = prompt('enter your id');
+const password = prompt('enter your password');
+userStorage.loginUser(
+  id, 
+  password, 
+  user => {
+    userStorage.getRoles(
+      user,
+      userWithRole => {
+        alert(`Hello ${userWithRole.name}, you have a ${userWithRole.role} role`);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  },
+  error => {
+    console.log(error);
+  }
+);
+
+# Promise
+```js
+// new Promiseの瞬間、実行されるので注意が必要
+const promise = new Promise((resolve, reject) => {
+  console.log('Executed immediately');
+  setTimeout(() => {
+    // resolve('abc');
+    reject(new Error('no network'));
+  }, 2000);
+});
+
+// consumer: then, catch, finally
+promise
+  .then((value) => {
+    console.log(value);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log('finally')
+  )};
+
+// promise chaining
+const fetchN = new Promise((resolve, reject) => {
+  setTimeout(() => resolve(1), 1000);
+});
+
+fetchN
+.then(num => num * 2)
+.then(num => num * 3)
+.then(num => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(num - 1), 1000)
+  });
+})
+.then(num => console.log(num));
+```
+
+// Resolving callback hell using promise
+class UserStorage {
+  loginUser(id, password) {  
+    return new Promise(resolve, reject) => {
+      setTimeout(() => {
+        if (id === 'abc') {
+          resolve(id);
+        } else {
+          reject(new Error('not found'));
+        }
+      }, 2000);
+    }
+  }
+  
+  getRoles(user) {
+    return new Promise(resolve, reject) => {
+      setTimeout(() => {
+        if (user === 'abc') {
+          resolve({name: 'abc', role: 'admin'});
+        } else {
+          reject(new Error('no access'));
+        }
+      }, 1000);
+    }
+  }
+}
+
+const userStorage = new UserStorage();
+const id = prompt('enter your id');
+const password = prompt('enter your password');
+userStorage.loginUser(id, password)
+.then(userStorage.getRoles) //.then(user => userStorage.getRoles(user)) 省略可能
+.then(user => alert(`Hello ${user.name}, you have a ${user.role} role`))
+.catch(console.log);
+
+// async, await: Promiseをもっと簡単に
+function fetchUser() {
+  // network request in 10 secs
+  return 'abc';
+}
+
+// 10秒待たないといけない
+const user = fetchUser();
+console.log(user);
+
+// async, awaitを使った構文
+async function fetchUser() {
+  return 'abc';// returnするとresolve
+}
+
+fecthUser().then(value => {
+  console.log(value);
+});
+
+async function fetchUser() {
+  throw new Error('reject!');// reject
+}
+
+fetchUser().catch(error => {
+  console.log(error);
+});
+
+```
