@@ -98,9 +98,30 @@ const result = students.find(function(item, index) {
   return item.score === 90;
 });
 
+// find
 // arrow function
-const result = students.find((item) => item.score === 90); // 3
+const result = students.find((item) => item.score === 90); // 3要素
 
 // filter
-const result = students.filter((student) => student.enrolled); // 1,3
+const result = students.filter((student) => student.enrolled); // 1と3要素
+
+// map
+const result = students.map((student) => student.score);// 45,80,90
+
+// some
+const result = students.some((student) => student.score < 50);// ひとつでも満たす true
+
+// every
+const result = students.every((student) => student.score < 50);// すべて満たす false
+
+// reduce
+const result = students.reduce((prev, curr) => prev + curr.score, 0);// prevには前回入れた値がくる
+const avg = result / students.length;
+
+// chain
+const result = students
+.map((student) => student.score)
+.filter((score) => score >= 50)
+.sort((a, b) => a - b)
+.join();
 ```
