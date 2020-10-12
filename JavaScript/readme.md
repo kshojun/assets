@@ -125,3 +125,30 @@ const result = students
 .sort((a, b) => a - b)
 .join();
 ```
+
+# JSON
+```js
+// Object to JSON
+let json = JSON.stringfy(['apple', 'banana']);
+
+const rabbit = {
+  name: 'abc',
+  color: 'white',
+  birthDate: new Date(),
+  jump: () => {console.log('jump')} // methodはJSONに含まれない
+};
+let json = JSON.stringfy(rabbit);// {"name": "abc", "color": "white"}
+
+let json = JSON.stringfy(rabbit, ['name']);// {"name": "abc"}
+
+let json = JSON.stringfy(rabbit, (key, value) => {
+  return key === 'name' ? 'aaaa' : value;
+});// {"name": "aaaa", "color": "white"}
+
+// JSON to Object
+const obj = JSON.parse(json);
+
+const obj = JSON.parse(json, (key, value) => {
+  return key === 'birthDate' ? new Date(value) : value;
+});
+```
