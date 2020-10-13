@@ -31,3 +31,11 @@
 7. CSS Peek
 8. HTML CSS SUPORT : CSS内容を自動補完
 9. LIVE SERVER
+
+# WSLからVSCodeを起動(WSL使える状態になってる)
+```bash
+$ cd workspace
+$ code .
+or
+VSCode起動済みの場合はcmdでwsl打つ
+```
