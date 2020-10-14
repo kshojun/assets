@@ -360,3 +360,41 @@ public class Test: MonoBehaviour {
   }
 }
 ```
+
+# 継承
+```c#
+// メソッドをabstractにする場合はabstract
+abstract public class Human : MonoBehaviour {
+  protected string name;
+  protected int age;
+  
+  // virtual：子クラスでOverrideできる
+  protected virtual void Info() {
+    print("I am a human");
+  }
+  
+  // 子クラスに実装を強制する
+  abstract protected void Name();
+}
+
+public class Student : Human {
+  string schoolName;
+  
+  void Start() {
+    schoolName = "school";
+    name = "abc";
+    age = 10;
+    
+    Info();
+  }
+  
+  protected override void Info() {
+    base.Info();
+    print("I am a student");
+  }
+  
+  protected override void Name() {
+    print(name);
+  }
+}
+```
