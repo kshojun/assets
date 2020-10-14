@@ -526,3 +526,47 @@ public class Test : Monobehaviour {
   }
 }
 ```
+
+# 無名メソッド、ラムダ式(delegateで使う)
+```c#
+public class Test : Monobehaviour {
+  int a = 5;
+  int b = 5;
+  int sum;
+  
+  void Add() {
+    sum = a + b;
+  }
+  
+  void Clear() {
+    sum = 0;
+  }
+  
+  delegate void MyDelegate();
+  MyDelegate delegate;
+  
+  void Start() {
+    delegate += Add;
+    // 無名メソッドはdelegateでしか使えない
+    delegate += delegate() { print(sum); };
+    // ラムダ式のほうが簡潔
+    delegate += () => print(sum);
+    delegate += Clear;
+    
+    delegate();
+  }
+}
+```
+
+```c#
+// ジェネリックとラムダ式を使ってもっと簡潔に
+public class Test : Monobehaviour {  
+  delegate void MyDelegate<T>(T a, T b);
+  MyDelegate<int> delegate;
+  
+  void Start() {
+    delegate += (int a, int b) => print(a + b);    
+    delegate(5, 5);
+  }
+}
+```
