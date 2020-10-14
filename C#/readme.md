@@ -627,3 +627,61 @@ public class Test : Monobehaviour {
   }
 }
 ```
+
+# 並列処理(Coroutine)
+```c#
+public class Test : Monobehaviour {
+  void Start() {
+    // LoopAが終わってからLoopBを実行
+    LoopA();
+    LoopB();
+  }
+  
+  void LoopA() {
+    for (int i = 0; i < 10; i++) {
+      print("i : " + i);
+    }
+  }
+  
+  void LoopB() {
+    for (int x = 0; x < 10; x++) {
+      print("x : " + x);
+    }
+  }
+}
+```
+
+```c#
+// Coroutine使って並列処理
+public class Test : Monobehaviour {
+  Coroutine c1;
+  Coroutine c2;
+  
+  void Start() {
+    c1 = StartCoroutine(LoopA());
+    c2 = StartCoroutine(LoopB());
+    StartCoroutine(Stop());
+  }
+  
+  iEnumerator LoopA() {
+    for (int i = 0; i < 10; i++) {
+      print("i : " + i);
+      yield return new WaitForSeconds(1f);// 1秒待機
+    }
+  }
+  
+  iEnumerator LoopB() {
+    for (int x = 0; x < 10; x++) {
+      print("x : " + x);
+      yield return new WaitForSeconds(1f);// 1秒待機
+    }
+  }
+  
+  iEnumerator Stop() {
+    yield return new WaitForSeconds(2f);
+    StopCoroutine(c1);
+    yield return new WaitForSeconds(2f);
+    StopCoroutine(c2);
+  }
+}
+```
