@@ -461,3 +461,31 @@ public class Test : MonoBehaviour {
   }
 }
 ```
+
+# Interface(多重継承できるようにする)
+```c#
+abstract public class A : MonoBehaviour {
+  abstract public void Abc();
+}
+
+interface ITest {
+  // メンバー変数は定義できない
+  void Bbc();
+}
+
+// インターフェース同士では継承できる
+interface ITest2 : ITest {
+}
+
+public class Test : A, ITest {
+  public override void Abc() {
+    print("abc");
+  }
+  
+  // override不要
+  public void Bbc() {
+    print("bbc");
+  }
+}
+```
+
