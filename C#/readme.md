@@ -527,7 +527,7 @@ public class Test : Monobehaviour {
 }
 ```
 
-# 無名メソッド、ラムダ式(delegateで使う)
+# 無名メソッド、ラムダ式(delegateで使う、無名メソッドを簡略化したやつ)
 ```c#
 public class Test : Monobehaviour {
   int a = 5;
@@ -566,6 +566,33 @@ public class Test : Monobehaviour {
   
   void Start() {
     delegate += (int a, int b) => print(a + b);    
+    delegate(5, 5);
+  }
+}
+```
+
+# delegateを簡潔に書ける(Action, Func)
+```c#
+using System;// Action, Func
+
+public class Test : Monobehaviour {
+  delegate void MyDelegate<T1, T2>(T1 a, T2 b);
+  MyDelegate<int, int> delegate2;
+
+  // 上記2行をActionで1行に
+  Action<int, int> delegate2;
+  
+  delegate string MyDelegate<T1, T2>(T1 a, T2 b);
+  MyDelegate<int, int> delegate3;
+  
+  // 上記2行をFunctionで1行に
+  Func<int, int, string> delegate3;
+  
+  void Start() {
+    delegate3 += (int a, int b) => {
+      int sum = a + b;
+      return sum.ToString();
+    }
     delegate(5, 5);
   }
 }
