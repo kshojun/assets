@@ -597,3 +597,33 @@ public class Test : Monobehaviour {
   }
 }
 ```
+
+# 例外処理(try ~ catch ~ finally)
+```c#
+using System;
+
+public class Test : Monobehaviour {
+  int a = 4;
+  int b = 0;
+  int c;
+  
+  void Start() {
+    try {
+      c = a / b;
+    } catch (DivideByZeroException e) {
+      print(e);
+      b = 1;
+      c = a / b;
+      print(c);
+    } catch (NullReferenceException e) {
+      // something
+    } finally {
+      // 必ず実行
+      print("finally");
+    }
+    
+    // 例外を投げる
+    // throw new Exception("わざと出す");
+  }
+}
+```
