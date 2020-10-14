@@ -489,3 +489,40 @@ public class Test : A, ITest {
 }
 ```
 
+# ジェネリック(C++でいうとテンプレート)
+```c#
+public class Abc<T> {
+  public T var;
+  public T[] array;
+}
+
+public class Test : Monobehaviour {
+  void Print<T>(T value) {
+    print(value);
+  }
+  
+  // class限定
+  void Print2<T>(T value) where T : class {
+    print(value);
+  }
+  
+  void Start() {
+    Print<string>("abc");
+    Print<float>(1.2f);
+    Print<int>(1);
+    
+    Print2<string>("aaa");
+    Print2<int>(1);// error
+    
+    Abc<string> a;
+    a.var = "abc";
+    a.array = new string[1];
+    a.array[0] = "abc";
+    
+    Abc<float> b;
+    b.var = 1.1f;
+    b.array = new flat[1];
+    b.array[0] = 3.3f;
+  }
+}
+```
