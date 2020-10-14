@@ -682,6 +682,9 @@ public class Test : Monobehaviour {
     StopCoroutine(c1);
     yield return new WaitForSeconds(2f);
     StopCoroutine(c2);
+    
+    // すべて中断
+    // StopAllCoroutines();
   }
 }
 ```
