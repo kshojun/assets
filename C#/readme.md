@@ -1,16 +1,16 @@
-# Data Types
+# データ型
 ```c#
 // sbyte -128 ~ +127 1byte
 // byte 0 ~ 255 1byte
 
-// short -30000 ~ +30000 2byte  ushort  0 ~ +60000
-// int -20億 ~ +20億 4byte  uint  0 ~ +40億
+// short 約-30000 ~ 約+30000 2byte  ushort  0 ~ 約+60000
+// int 約-20億 ~ 約+20億 4byte  uint  0 ~ 約+40億
 // long  8byte  ulong 
 
 // float < double < decimal 誤差が少なくなる
 // float f = 4.1f;
 // double d = 1.1;   
-// decimal m = 4.3333m;   
+// decimal m = 4.3333m;
 
 // bool a = true; // false
 
@@ -27,7 +27,7 @@ a = int.Parse(b);
 // double.Parse() など数字→文字列はParse使う
 ```
 
-# 関数
+# メソッド
 ```c#
 // CamelCase
 void FloatToInt(float f, string d = "default") {
@@ -304,6 +304,59 @@ public class Test: MonoBehaviour {
   void Start() {    
     item = Item.Weapon;
     print(item);
+  }
+}
+```
+
+# Delegate（メソッドをまとめて呼び出す）
+```c#
+// Delegate使う前
+public class Test: MonoBehaviour {
+  public power;
+  public defence;
+  
+  public void SetPower(int v) {
+    power += v;
+    print("power -> " + power);
+  }
+
+  public void SetDefence(int v) {
+    defence += v;
+    print("defence -> " + defence);
+  }
+  
+  void Start() {
+    // メソッドを個別で呼び出すと、メソッドが増えたとき、呼び出し忘れが起きやすい
+    SetPower();
+    SetDefence();
+  }
+}
+
+// Delegate使う（他クラスからも使う場合はEventを利用）
+public class Test: MonoBehaviour {
+  public power;
+  public defence;
+  
+  public delegate void Chain(int v);
+  Chain chain;
+  
+  public void SetPower(int v) {
+    power += v;
+    print("power -> " + power);
+  }
+
+  public void SetDefence(int v) {
+    defence += v;
+    print("defence -> " + defence);
+  }
+  
+  void Start() {
+    chain += SetPower;
+    chain += SetDefence;
+    // 削除する場合 chain -= SetPower;
+    if (chain != null) {
+      chain(5);
+    }
   }
 }
 ```
