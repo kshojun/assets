@@ -223,5 +223,53 @@ public class Test: MonoBehaviour {
     }
   }
 }
+```
 
+# 名前空間(外部ライブラリなど、被り防止)
+```c#
+using Shojun.Twitter;// using Shojun;でもいい
+
+namespace Shojun {
+  public class Twitter {
+    private int like;
+    
+    public void Like(int v) {
+      like = v;
+    }
+    
+    public int IsLike() {
+      return like != 0;
+    }
+  }
+}
+
+public class Test: MonoBehaviour {
+  void Start() {
+    Twitter tw = new Twitter();
+    tw.Like(1);
+    print(tw.IsLike());
+  }
+}
+```
+
+```c#
+using Shojun.Twitter;
+using Another;
+
+namespace Shojun {
+  namespace Another {
+    public class Twitter {
+    }
+  }
+  public class Twitter {
+  }
+}
+
+public class Test: MonoBehaviour {
+  void Start() {
+    // 同じクラス名を同時に使いたい場合は名前空間も明示
+    Shojun.Twitter tw = new Shojun.Twitter();
+    Shojun.Another.Twitter tw2 = new Shojun.Another.Twitter();    
+  }
+}
 ```
