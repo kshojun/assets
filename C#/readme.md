@@ -185,10 +185,10 @@ public class Test: MonoBehaviour {
 
     list.Contains("aaa");// true
     
-    // List int限定、あとはArrayListと同じ使い方
+    // List データ型を限定、他はArrayListと同じ使い方
     List<int> list = new List<int>();
     
-    // Hashtable
+    // Hashtable（何でもあり）
     Hashtable hash = new Hashtable();
     hash.Add("a", 1);
     hash.Add("b", 2);
@@ -196,7 +196,7 @@ public class Test: MonoBehaviour {
     print(hash["a"]);
     print(hash[2]);
     
-    // Dictionary
+    // Dictionary(データ型限定)
     Dictionary<string, int> dic = new Dictionary<string, int>();
     dic.Add("a", 1);
     
@@ -225,7 +225,7 @@ public class Test: MonoBehaviour {
 }
 ```
 
-# 名前空間(外部ライブラリなど、被り防止)
+# 名前空間(クラス名被り防止)
 ```c#
 using Shojun.Twitter;// using Shojun;でもいい
 
@@ -253,6 +253,7 @@ public class Test: MonoBehaviour {
 ```
 
 ```c#
+// 同じクラス名を同時に使いたい場合は名前空間も明示
 using Shojun.Twitter;
 using Another;
 
@@ -267,7 +268,6 @@ namespace Shojun {
 
 public class Test: MonoBehaviour {
   void Start() {
-    // 同じクラス名を同時に使いたい場合は名前空間も明示
     Shojun.Twitter tw = new Shojun.Twitter();
     Shojun.Another.Twitter tw2 = new Shojun.Another.Twitter();    
   }
