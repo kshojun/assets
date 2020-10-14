@@ -42,6 +42,10 @@ int FloatToInt(float f, string d = "default") {
 
 # Class
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test2 {
   private int a;
   public int b; 
@@ -137,6 +141,10 @@ public class Test: MonoBehaviour {
 
 # 配列
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test: MonoBehaviour {
   void Start() {
     int[] arr = {1,2,3,4,5};// 追加不可
@@ -160,6 +168,10 @@ public class Test: MonoBehaviour {
 
 # コレクション
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test: MonoBehaviour {
   void Start() {
     int[] arr = new int[5]{1,2,3,4,5};
@@ -227,6 +239,9 @@ public class Test: MonoBehaviour {
 
 # 名前空間(クラス名被り防止)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Shojun.Twitter;// using Shojun;でもいい
 
 namespace Shojun {
@@ -254,6 +269,9 @@ public class Test: MonoBehaviour {
 
 ```c#
 // 同じクラス名を同時に使いたい場合は名前空間も明示
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Shojun.Twitter;
 using Another;
 
@@ -276,6 +294,10 @@ public class Test: MonoBehaviour {
 
 # Constructor
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test: MonoBehaviour {
   public int a;
   public int b;
@@ -293,6 +315,10 @@ public class Test: MonoBehaviour {
 
 # Enum
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public enum Item {
   Weapon,
   Shield,
@@ -310,6 +336,10 @@ public class Test: MonoBehaviour {
 
 # Delegate（メソッドをまとめて呼び出す）
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 // Delegate使う前
 public class Test: MonoBehaviour {
   public power;
@@ -363,6 +393,10 @@ public class Test: MonoBehaviour {
 
 # 継承
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 // メソッドをabstractにする場合はabstract
 abstract public class Human : MonoBehaviour {
   protected string name;
@@ -401,6 +435,10 @@ public class Student : Human {
 
 # メンバー変数をカプセル化
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 // メンバー変数の数 x 2個ずつメソッドを増やさないといけない
 public class Salary : MonoBehaviour {
   private int salary;
@@ -416,6 +454,10 @@ public class Salary : MonoBehaviour {
 
 # プロパティを使う
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Salary : MonoBehaviour {
   private int salary;
   public int SalaryP {
@@ -438,6 +480,10 @@ public class Salary : MonoBehaviour {
 
 # Indexer(配列のように扱える)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Record {
   public int[] r = new int[5];
   public int this[int index] {
@@ -464,6 +510,10 @@ public class Test : MonoBehaviour {
 
 # Interface(多重継承できるようにする)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 abstract public class A : MonoBehaviour {
   abstract public void Abc();
 }
@@ -491,6 +541,10 @@ public class Test : A, ITest {
 
 # ジェネリック(C++でいうとテンプレート)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Abc<T> {
   public T var;
   public T[] array;
@@ -529,6 +583,10 @@ public class Test : Monobehaviour {
 
 # 無名メソッド、ラムダ式(delegateで使う、無名メソッドを簡略化したやつ)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test : Monobehaviour {
   int a = 5;
   int b = 5;
@@ -573,6 +631,9 @@ public class Test : Monobehaviour {
 
 # delegateを簡潔に書ける(Action, Func)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using System;// Action, Func
 
 public class Test : Monobehaviour {
@@ -600,6 +661,9 @@ public class Test : Monobehaviour {
 
 # 例外処理(try ~ catch ~ finally)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using System;
 
 public class Test : Monobehaviour {
@@ -630,6 +694,10 @@ public class Test : Monobehaviour {
 
 # 並列処理(Coroutine)
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test : Monobehaviour {
   void Start() {
     // LoopAが終わってからLoopBを実行
@@ -653,6 +721,10 @@ public class Test : Monobehaviour {
 
 ```c#
 // Coroutine使って並列処理
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Test : Monobehaviour {
   Coroutine c1;
   Coroutine c2;
