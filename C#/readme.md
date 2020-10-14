@@ -40,7 +40,7 @@ int FloatToInt(float f, string d = "default") {
 }
 ```
 
-# アクセサー
+# Class
 ```c#
 public class Test2 {
   private int a;
@@ -270,6 +270,40 @@ public class Test: MonoBehaviour {
     // 同じクラス名を同時に使いたい場合は名前空間も明示
     Shojun.Twitter tw = new Shojun.Twitter();
     Shojun.Another.Twitter tw2 = new Shojun.Another.Twitter();    
+  }
+}
+```
+
+# Constructor
+```c#
+public class Test: MonoBehaviour {
+  public int a;
+  public int b;
+  
+  public Test(int _a, int _b) {
+    a = _a;
+    b = _b;
+  }
+  
+  void Start() {
+    Test t = new Test(1, 2);
+  }
+}
+```
+
+# Enum
+```c#
+public enum Item {
+  Weapon,
+  Shield,
+  Portion,
+}
+
+public class Test: MonoBehaviour {
+  Item item;
+  void Start() {    
+    item = Item.Weapon;
+    print(item);
   }
 }
 ```
