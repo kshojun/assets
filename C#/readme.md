@@ -398,3 +398,40 @@ public class Student : Human {
   }
 }
 ```
+
+# メンバー変数をカプセル化
+```c#
+// メンバー変数の数 x 2個ずつメソッドを増やさないといけない
+public class Salary : MonoBehaviour {
+  private int salary;
+  private void SetSalary(int value) {
+    salary = value;
+  }
+  
+  public int GetSalary() {
+    return salary;
+  }
+}
+```
+
+# プロパティを使う
+```c#
+public class Salary : MonoBehaviour {
+  private int salary;
+  public int SalaryP {
+    get { return salary; }
+    // 必ずvalueにしないといけない
+    // このset自体を書かなくてもいい
+    private set { salary = value; }
+  }
+  // 自動プロパティ
+  public int Bonus { get; set; }
+  
+  void Start() {
+    SalaryP = 10;
+    print(SalaryP);
+    Bonus = 2;
+    print(Bonus);
+  }
+}
+```
