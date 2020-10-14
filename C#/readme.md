@@ -435,3 +435,29 @@ public class Salary : MonoBehaviour {
   }
 }
 ```
+
+# Indexer(配列のように扱える)
+```c#
+public class Record {
+  public int[] r = new int[5];
+  public int this[int index] {
+    get { if (index >= r.Length) {
+      Debug.Log("Out of index");// printはMonoBehaviourにあるのでDebugを使う
+      return 0;
+    } else {
+      return r[index];
+    }
+    set { if (index >= r.Length) Debug.Log("Out of index"); else r[index] = value; }
+  }
+}
+
+public class Test : MonoBehaviour {
+  Record record = new Record();
+  
+  void Start() {
+    record.r[0] = 3;
+    // Indexerで簡潔に書ける
+    record[0] = 3;        
+  }
+}
+```
