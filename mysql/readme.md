@@ -76,6 +76,11 @@ slow_query_log_file = /var/log/slow_query.log
 わざと出す
 select sleep(3);
 
+-s ソート
+at Queryの平均実行時間
+c Queryの出現回数
+ar Query内で取得/更新した合計レコード行数
+t Queryの合計実行時間
 $ mysqldumpslow -s t /var/log/slow_query.log
 ```
 
