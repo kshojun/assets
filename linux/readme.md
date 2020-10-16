@@ -93,6 +93,13 @@ Delegates (built-in): bzlib cairo fontconfig freetype gslib jng jpeg lcms ltdl l
 ```bash
 $ yum list installed | grep logrotate
 
+$ vi /etc/my.cnf
+[mysqladmin]
+user=root
+password=xxxxxx
+
+$ systemctl restart mysqld
+
 $ vi /etc/logrotate.d/mysql_slow
 /var/log/slow_query.log {
     daily
@@ -102,7 +109,7 @@ $ vi /etc/logrotate.d/mysql_slow
     notifempty
     dateext
     postrotate
-      mysql -uroot -pxxxxxx -e 'FLUSH SLOW LOGS'
+      /usr/bin/mysqladmin flush-logs
     endscript
 }
 
