@@ -63,10 +63,17 @@ $ systemctl start mysqld
 
 ### Slow query
 ```
+事前に作っておく
+$ touch /var/log/slow_query.log
+$ chown mysql: /var/log/slow_query.log
+
 [mysqld]
-slow_query_log=ON
+slow_query_log='ON'
 long_query_time = 2
+log_queries_not_using_indexes = 'ON'
 slow_query_log_file = /var/log/slow_query.log
+
+$ mysqldumpslow -s t /var/log/slow-query.log
 ```
 
 ### ぶっ壊れたら
