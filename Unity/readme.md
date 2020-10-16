@@ -191,3 +191,35 @@ public class Mesh : MonoBehaviour
     }
 }
 ```
+
+# Camera
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MainCamera : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject target;
+
+    [SerializeField]
+    private float speed;
+
+    private Vector3 diff;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        diff = transform.position - target.transform.position;
+        diff = new Vector3(Mathf.Abs(diff.x), Mathf.Abs(diff.y), Mathf.Abs(diff.z));
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 動きを滑らか
+        this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + diff, speed);
+    }
+}
+```
