@@ -56,3 +56,49 @@ public class Manager : MonoBehaviour {
     }
 }
 ```
+
+# RigidBody
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RigidBody : MonoBehaviour
+{
+    private Rigidbody rigid;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rigid = GetComponent<Rigidbody>();
+        // 物理効果を有効
+        rigid.isKinematic = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W)) {
+            // 速度
+            //rigid.velocity = Vector3.forward;// new Vector3(0, 0, 1);と同じ意味
+
+            // 最大回転速度(default = 7)
+            rigid.maxAngularVelocity = 100;
+            // 回転速度
+            rigid.angularVelocity = Vector3.right;// -Vector3.rightは左
+
+            // MoveXXXは物理効果は関係ない
+            rigid.MovePosition(transform.forward * Time.deltaTime);
+
+            // 移動
+            rigid.AddForce(Vector3.forward);
+
+            // 回転を維持しながらゆっくり止まる
+            rigid.AddTorque(Vector3.up);
+
+            // 右から爆発させる
+            rigid.AddExplosionForce(10, this.transform.right, 10);
+	    }
+    }
+}
+```
