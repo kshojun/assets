@@ -107,3 +107,56 @@ public class RigidBody : MonoBehaviour
 - Collider同士で衝突する
 - MaterialにPhisycs Materialをアタッチすると跳ねる
 - Is Triggerは衝突を感知するだけで、通過する（イベント用）
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Collider : MonoBehaviour
+{
+    private BoxCollider box;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        box = GetComponent<BoxCollider>();
+    }
+
+	// Update is called once per frame
+	void Update()
+	{
+		// GetKeyDownは一度だけ
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			Debug.Log("bounds " + box.bounds);
+			Debug.Log("bounds extends " + box.bounds.extents);
+			Debug.Log("bounds extends x" + box.bounds.extents.x);
+			Debug.Log("box size " + box.size);
+			Debug.Log("box center " + box.center);
+		}
+
+		// left click
+		if (Input.GetMouseButtonDown(0))
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hitInfo;
+			if (box.Raycast(ray, out hitInfo, 1000))
+			{
+				this.transform.position = hitInfo.point;
+			}
+		}
+	}
+
+	private void OnTriggerStay(UnityEngine.Collider other)
+	{
+        other.transform.position += new Vector3(0, 0, 0.01f);
+	}
+
+	private void OnTriggerExit(UnityEngine.Collider other)
+	{
+		other.transform.position = new Vector3(0, 2, 0);
+	}
+}
+
+```
