@@ -70,7 +70,7 @@ $ chown mysql: /var/log/slow_query.log
 [mysqld]
 slow_query_log='ON'
 long_query_time = 2
-log_queries_not_using_indexes = 'ON'
+log_queries_not_using_indexes = 'ON' # インデックス貼ってないクエリを出力。これをONにすると実行時間関係なく出力される
 slow_query_log_file = /var/log/slow_query.log
 
 わざと出す
