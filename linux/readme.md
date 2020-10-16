@@ -106,6 +106,9 @@ $ vi /etc/logrotate.d/mysql_slow
     endscript
 }
 
+# 再起動は不要
+
+# dry-run
 $ logrotate -dv /etc/logrotate.d/mysql_slow
 reading config file /etc/logrotate.d/mysql_slow
 Allocating hash table for state file, size 15360 B
@@ -117,4 +120,3 @@ empty log files are not rotated, old logs are removed
 considering log /var/log/slow_query.log
   log does not need rotating (log has been already rotated)
 ```
-
