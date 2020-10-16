@@ -158,5 +158,36 @@ public class Collider : MonoBehaviour
 		other.transform.position = new Vector3(0, 2, 0);
 	}
 }
+```
 
+# MeshRenderer
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Mesh : MonoBehaviour
+{
+    [SerializeField]
+    private Material red;
+    [SerializeField]
+    private Material green;
+    private MeshRenderer mesh;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        mesh = GetComponent<MeshRenderer>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) {
+            mesh.material = red;
+        } else {
+            mesh.material = green;
+        }
+    }
+}
 ```
