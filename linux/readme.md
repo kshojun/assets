@@ -88,3 +88,33 @@ License: https://imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP(3.1) 
 Delegates (built-in): bzlib cairo fontconfig freetype gslib jng jpeg lcms ltdl lzma openexr pangocairo png ps rsvg tiff wmf x xml zlib
 ```
+
+# logrotate
+```bash
+$ yum list installed | grep logrotate
+
+$ vi /etc/logrotate.d/mysql_slow
+/var/log/slow_query.log {
+    daily
+    missingok
+    rotate 7
+    nocompress
+    notifempty
+    dateext
+    postrotate
+      mysql -uroot -pxxxxxx -e 'FLUSH SLOW LOGS'
+    endscript
+}
+
+$ logrotate -dv /etc/logrotate.d/mysql_slow
+reading config file /etc/logrotate.d/mysql_slow
+Allocating hash table for state file, size 15360 B
+
+Handling 1 logs
+
+rotating pattern: /var/log/slow_query.log  after 1 days (7 rotations)
+empty log files are not rotated, old logs are removed
+considering log /var/log/slow_query.log
+  log does not need rotating (log has been already rotated)
+```
+
