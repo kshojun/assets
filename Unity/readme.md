@@ -102,3 +102,8 @@ public class RigidBody : MonoBehaviour
     }
 }
 ```
+
+# Box Collider
+- Collider同士で衝突する
+- MaterialにPhisycs Materialをアタッチすると跳ねる
+- Is Triggerは衝突を感知するだけで、通過する（イベント用）
