@@ -73,6 +73,9 @@ long_query_time = 2
 log_queries_not_using_indexes = 'ON'
 slow_query_log_file = /var/log/slow_query.log
 
+わざと出す
+select sleep(3);
+
 $ mysqldumpslow -s t /var/log/slow_query.log
 ```
 
