@@ -225,21 +225,26 @@ public class MainCamera : MonoBehaviour
 ```
 
 # ゲームオブジェクトのLifeCycle
-初期化
 Awake
-ゲームオブジェクトが活性化
-OnEnable
 初期化
+OnEnable
+ゲームオブジェクトが活性化
 Start
+初期化
 
-固定回数
 FixedUpdate
-環境によって違う(1sec = 60frame)
+固定回数
 Update
-すべてのUpdateが終わってから
+環境によって違う(1sec = 60frame)
 LateUpdate
+すべてのUpdateが終わってから
 
-ゲームオブジェクトが削除される前
 OnDestroy
-ゲームオブジェクトが非活性化
+ゲームオブジェクトが削除される前
 OnDisable
+ゲームオブジェクトが非活性化
+
+# Input
+Input.anyKeyDown   押したときTRUE
+Input.anyKey  どんなキーでもいい、押してる間TRUE
+
