@@ -102,11 +102,14 @@ $ systemctl restart mysqld
 
 $ vi /etc/logrotate.d/mysql_slow
 /var/log/slow_query.log {
+    # createとcopytruncateがあると、copytruncateが優先される
+    create 0644 mysql mysql # 元のログファイルがないと空のファイルを作る
+    copytruncate  # 元のログを消さず中身を空に
     daily
-    missingok
+    missingok # ファイルなくてもエラーにしない
     rotate 7
-    nocompress
-    notifempty
+    nocompress # 圧縮しない
+    notifempty # 空のときは何もしない
     dateext
     postrotate
       /usr/bin/mysqladmin flush-logs
@@ -126,4 +129,11 @@ rotating pattern: /var/log/slow_query.log  after 1 days (7 rotations)
 empty log files are not rotated, old logs are removed
 considering log /var/log/slow_query.log
   log does not need rotating (log has been already rotated)
+  
+# 強制実行
+$ logrotate -f /etc/logrotate.d/mysql_slow
+
+# 実行ログを消せば、また実行できる
+$ vi /var/lib/logrotate/logrotate.status 
+"/var/log/slow_query.log" 2020-10-17-5:43:36 # これを消す
 ```
