@@ -223,3 +223,23 @@ public class MainCamera : MonoBehaviour
     }
 }
 ```
+
+# ゲームオブジェクトのLifeCycle
+初期化
+Awake
+ゲームオブジェクトが活性化
+OnEnable
+初期化
+Start
+
+固定回数
+FixedUpdate
+環境によって違う(1sec = 60frame)
+Update
+すべてのUpdateが終わってから
+LateUpdate
+
+ゲームオブジェクトが削除される前
+OnDestroy
+ゲームオブジェクトが非活性化
+OnDisable
