@@ -250,3 +250,36 @@ Input.anyKey  どんなキーでもいい、押してる間TRUE
 
 # SpriteRenderer
 - 画像のTexture TypeがSprite(2D and UI)になってないとSpriteRendererのSpriteに代入できない
+
+# GameObjectの移動
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    private float speed = 5.0f;
+    private Vector3 direction = Vector3.zero;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        // vector3方向 * 速度
+        transform.position = transform.position + new Vector3(1, 0, 0) * 1;
+        // transform.position += Vector3.right * 1;
+    }
+
+    private void Update()
+    {
+        // -1:left 1:left 0:none
+        float x = Input.GetAxisRaw("Horizontal");
+        // -1:down 1:up 0:none
+        float y = Input.GetAxisRaw("Vertical");
+
+        direction = new Vector3(x, y, 0);
+
+        transform.position += direction * speed * Time.deltaTime;
+    }
+}
+```
