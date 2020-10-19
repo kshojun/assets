@@ -283,3 +283,73 @@ public class Player : MonoBehaviour
     }
 }
 ```
+
+# GameObjectの衝突
+- 二つのオブジェクトがCollider2Dを持ってること
+- 一つ以上のオブジェクトがRigidBodyを持ってること
+
+- OnTriggerEnterで判定する場合は、Colliderコンポーネント内のisTriggerにチェックをつけて置く必要
+- OnCollisionEnterは衝突した際の反発がある際に発火するので、Colliderコンポーネント内のisTriggerにチェックは外し
+反発させるためには、判定したいオブジェクトにRigiBodyコンポーネントを追加して置く必要
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    private float moveSpeed = 5.0f;
+    private Rigidbody2D rigid;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        rigid.velocity = new Vector3(x, y, 0) * moveSpeed;
+    }
+}
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TriggerEvent : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject moveObject;
+    [SerializeField]
+    private Vector3 moveDirection;
+    private float moveSpeed;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        moveSpeed = 5.0f;
+    }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        moveObject.GetComponent<SpriteRenderer>().color = Color.black;
+	}
+
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+        moveObject.transform.position += moveDirection * moveSpeed * Time.deltaTime;
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+        moveObject.GetComponent<SpriteRenderer>().color = Color.white;
+        moveObject.transform.position = new Vector3(0,2,0);
+	}
+}
+```
