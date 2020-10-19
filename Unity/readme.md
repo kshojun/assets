@@ -248,3 +248,5 @@ OnDisable
 Input.anyKeyDown   押したときTRUE
 Input.anyKey  どんなキーでもいい、押してる間TRUE
 
+# SpriteRenderer
+- 画像のTexture TypeがSprite(2D and UI)になってないとSpriteRendererのSpriteに代入できない
