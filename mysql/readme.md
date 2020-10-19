@@ -66,6 +66,7 @@ $ systemctl start mysqld
 事前に作っておく
 $ touch /var/log/slow_query.log
 $ chown mysql:root /var/log/slow_query.log # logrotateを考えてroot groupにしておく
+$ chmod g+w /var/log/slow_query.log
 
 [mysqld]
 slow_query_log='ON'
