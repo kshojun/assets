@@ -353,3 +353,36 @@ public class TriggerEvent : MonoBehaviour
 	}
 }
 ```
+
+# Prefab
+Hierarchyにひな形のGameObject生成
+Assetsにドラッグ（青いボックスアイコン）
+HierarchyのGameObjectを消す
+空のオブジェクト作って、ObjectFactoryスクリプトをあてる
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ObjectFactory : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject prefab;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        // 45度回転
+        Quaternion rotation = Quaternion.Euler(0, 0, 45);
+        Instantiate(prefab, new Vector3(2, 3, 0), rotation);
+        // 回転なし
+        GameObject clone = Instantiate(prefab, new Vector3(-2, 3, 0), Quaternion.identity);
+        // 作ったオブジェクトを変更
+        clone.name = "CloneObj";
+        clone.GetComponent<SpriteRenderer>().color = Color.black;
+        clone.transform.position = new Vector3(2, 1, 0);
+        clone.transform.localScale = new Vector3(3, 2, 1);
+    }
+}
+```
