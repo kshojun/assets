@@ -386,3 +386,37 @@ public class ObjectFactory : MonoBehaviour
     }
 }
 ```
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ObjectFactory : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject[] prefabs;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        for (int i = 0; i < 10; i++) {
+            int index = Random.Range(0, prefabs.Length);
+            Vector3 pos = new Vector3(-3.0f + i, 0, 0);
+            Instantiate(prefabs[index], pos, Quaternion.identity);
+		}
+    }
+}
+```
+
+# Destroy
+```c#
+// オブジェクトのPlayerControllerを削除
+Destroy(object.GetComponent<PlayerController>());
+// オブジェクトを削除
+Destroy(object);
+// 2秒後削除
+Destroy(object, 2.0f);
+// gameObjectは自身の所属してるオブジェクト(銃弾に適用して衝突したら消えるとか)
+Destory(gameObject);
+```
