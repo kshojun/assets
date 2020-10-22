@@ -99,3 +99,28 @@ systemctl start mysqld
 cat /var/log/mysqld.log | grep 'temporary password'
 ログインできるはず
 ```
+
+```sql
+UPDATE master_an ma
+INNER JOIN (
+	SELECT
+		ma.id
+		, mq.code
+		, (
+			SELECT count(0) FROM master_an inma
+			WHERE inma.question_id = ma.question_id
+				AND	inma.id <= ma.id
+		) num
+	FROM master_q mq
+	INNER JOIN master_an ma
+		ON	ma.question_id = mq.id
+) uni
+	ON	uni.id = ma.id
+SET
+	ma.code = concat(uni.code,'-',uni.num)
+	, ma.number = uni.num;
+
+ALTER TABLE `master_an`
+ADD UNIQUE INDEX (`code`) USING BTREE ,
+ADD UNIQUE INDEX (`question_id`, `number`) USING BTREE;
+```
