@@ -52,3 +52,32 @@
 
 # 論理型
 属性があれば有効 hidden
+
+# Form Input Type
+- text
+- password
+- search
+- email
+- url
+- tel
+- number
+- range
+- checkbox
+- radio
+- submit
+- reset
+- button
+- image
+- file
+- color
+- date
+- month
+- week
+- time
+- datetime-local
+- hidden
+
+# checkbox
+```html
+<label><input type="checkbox">aaa</label> <- labelつけるとチェックボックス以外クリックしても効く
+```
