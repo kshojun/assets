@@ -23,3 +23,8 @@
 |Firefox|Gecko|
 |Safari|Webkit|
 
+# 表示可能イメージ形式
+- jpeg : 写真
+- png : イラスト、ロゴ。透明色の利用
+- gif : アニメーション
+- svg : ベクター形式（拡大しても劣化しない）
