@@ -134,8 +134,7 @@ twitter
 <link rel="next" href="">
 ```
 
-# スマホで自動番号の自動リンク
+# スマホで電話番号等の自動リンク
 ```html
-<meta name="format-detection" content="telephone=no"> <- 電話番号リンク
-<meta name="" content="">
+<meta name="format-detection" content="telephone=no,email=no,address=no"> <- 電話番号リンクやめる
 ```
