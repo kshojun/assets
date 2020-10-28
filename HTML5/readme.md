@@ -77,7 +77,65 @@
 - datetime-local
 - hidden
 
-# checkbox
+# label
 ```html
-<label><input type="checkbox">aaa</label> <- labelつけるとチェックボックス以外クリックしても効く
+<label><input type="checkbox">aaa</label> <- クリック領域が広がる
+<label><input type="radio">aaa</label> <- クリック領域が広がる
+```
+
+# Tags in Head
+```html
+<meta charset="utf-8">
+<meta name="description" content=""> <- 紹介文、250文字くらい ページトップにあればいい
+<meta name="keyword"> <- 今や不要
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> <- 過去のIEの互換モード対応
+<meta name="viewport" content="width=device-width,initial-scale=1"> <- スマホでみたとき
+<meta name="robots" content="noindex,follow"> <- 検索ロボット用 nofollow無視してくれ followみてもいいよ
+```
+
+# Social Share時の情報
+```html
+facebook
+<meta property="og:url" content="">
+<meta property="og:title" content="">
+<meta property="og:type" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:locale" content="">
+
+twitter
+<meta property="twitter:card" content="">
+<meta property="twitter:site" content="">
+```
+
+# URLが複数ある場合の正規化
+```html
+<link rel="canonical" href="">
+```
+
+# CSS
+```html
+<link rel="stylesheet" href="">
+```
+
+# JavaScript
+```html
+<script src=""></script>
+```
+
+# RSS Feed
+```html
+<link rel="alternate" type="application/rss+xml" title="" href="">
+```
+
+# 複数ページの前後
+```html
+<link rel="prev" href="">
+<link rel="next" href="">
+```
+
+# スマホで自動番号の自動リンク
+```html
+<meta name="format-detection" content="telephone=no"> <- 電話番号リンク
+<meta name="" content="">
 ```
