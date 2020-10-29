@@ -1,12 +1,15 @@
-# Inline Style  
+# Inline Style   
 HTML要素に直接CSSを記述。**使うべきでない**が、デバック時は使ったりする。  
 ```<div style="color:red;">text</div>```  
 
-# Embedded Style  
+# 内部参照   
 styleタグに生で書く。ページ数が増えた時、変更が大変なので**使うべきでない**。  
 ```html
 <head>
 <style>
+h1 {
+  color: green;
+}
 .b {
   color:blue;
 }
@@ -16,7 +19,7 @@ styleタグに生で書く。ページ数が増えた時、変更が大変なの
 <div class="b">text</div>
 ```
 
-# Linked Style  
+# 外部参照   
 割と良く使う
 ```<link rel="stylesheet" type="text/css" href="some.css">```  
 
