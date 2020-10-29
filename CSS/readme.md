@@ -43,8 +43,41 @@ reset.cssはやりすぎなので、こちらを使い、こいつの次から�
 ```
 
 # 書き方  
-セレクタ { 属性: 値; }  
-div { font-size: 10px; }  
+セレクタ { 属性: 値; }   
+```html
+div {
+  font-size: 10px;
+}
+```
+
+```html
+div.class_name {
+  color:red;
+}
+```
+セレクターを限定しない場合は.class_nameと書く
+
+```html
+div#id_name {
+  color:blue;
+}
+```
+id属性はサーバーサイドやjsなどで使うのでcssではあまり使わない   
+通常、#id_nameだけ書く（idはひとつしか存在しないので）
+
+```html
+input[type="text"] {
+  background-color: #fcc;
+}
+```
+inputのtext属性のみ
+
+```html
+header h1 {
+  color: red;
+}
+```
+headerタグ内のh1のみ
 
 # セレクタ適用の優先順位
 |element|score|
