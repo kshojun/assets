@@ -1,8 +1,8 @@
-# Inline Style   
+# Inline Style
 HTML要素に直接CSSを記述。**使うべきでない**が、デバック時は使ったりする。  
 ```<div style="color:red;">text</div>```  
 
-# 内部参照   
+# 内部参照
 styleタグに生で書く。ページ数が増えた時、変更が大変なので**使うべきでない**。  
 ```html
 <head>
@@ -19,14 +19,75 @@ h1 {
 <div class="b">text</div>
 ```
 
-# 外部参照   
+# 外部参照
 割と良く使う
 ```<link rel="stylesheet" type="text/css" href="some.css">```  
 
-# Import Style  
+# Import Style
 ```@import url('some.css');```  
 styleタグに書くこともできるが、Embedded Style同様、メンテナンスが大変なので  
 CSSファイルの中で使うべき。CSSファイルにそのままIncludeする。  
+
+# reset.css
+ブラウザのデフォルトCSSを外し、ブラウザ間のスタイルの違いをなくす   
+ただ、まっさらになるので<ul>などの・も表示されなくなる   
+すべてのタグをカスタマイズしたいときに使う
+```css
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+```
+
+# sanitize.css
+reset.cssはやりすぎなので、こちらを使い、こいつの次から自分のCSSを使う
+```html
+<link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+```
 
 # 書き方  
 セレクタ { 属性: 値; }  
