@@ -198,3 +198,56 @@ button {
 <a href="#" class="btn-default">button</a>
 <a href="#" class="btn-alert">button</a>
 ```
+
+# 関数
+```html
+$width: 100px;
+
+.boxNormal {
+    width: $width / 3;/* 33.33333...  */
+}
+
+.boxCeil {
+    width: ceil($width / 3);/* 34px */
+}
+
+.boxFloor {
+    width: floor($width / 3);/* 33px */
+}
+
+.boxRound {
+    width: round($width / 3);/* 33px */
+}
+```
+
+```html
+.container {
+    width: 800px;
+    margin: 0 auto;
+
+    $margin: -20px;
+    h1 {
+        background-color: #ccc;
+        margin-left: $margin;/* 見出しの背景をはみ出させる */
+        padding-left: abs($margin);/* 文字はそのまま */
+        text-shadow: 1px 1px 1px rgba(#ccc, .3); /* rgba(200,200,200,.3)のように書かなくてもよい */
+        color: lighten(black, 50%);/* 50%明るく */
+        color: darken(#fcc, 50%);/* 50%暗く */
+    }
+}
+
+<div class="container">
+    <h1>Sass</h1>
+    <p>Sass...</p>
+</div>
+```
+
+```html
+@function half($value) {
+    @return ceil($value / 2);
+}
+
+.box {
+    width: half(101px);
+}
+```
