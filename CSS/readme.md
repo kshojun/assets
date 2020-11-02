@@ -233,3 +233,10 @@ span {
 }
 <p>HTML<span>CSS</span></p>
 ```
+
+# Vendor Prefix
+```html
+.box {
+  -webkit-border-radius: 5px; /* border-radiusが勧告になる前にVendorが先に実装したもの -webkitなど border-radiusはあくまで例 */
+}
+```
