@@ -178,6 +178,8 @@ div { width: 100px; height: 100px; border: 10px solid red; }
 border-width: 1px 2px 3px 4px;  
 border-style: solid double dotted dashed;  
 border-color: black red blue orange;  
+border-left-width: 5px;
+border-right-style: dotted;
 
 # box model  
 ```html
@@ -187,3 +189,16 @@ border-color: black red blue orange;
 ```  
 縦横100pxのボックスを描く場合、上記のように書くとpaddingの分だけボックスがデカくなり、線も太くなる。  
 したがって予めpadding分を引いたwidth or heightを使わないといけない。  
+
+```html
+.box {
+  float: left; /* 横に並べる */
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 1px solid #fcc;
+}
+
+<div class="box"></div>
+<div class="box"></div>
+```
