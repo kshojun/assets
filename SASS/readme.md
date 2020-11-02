@@ -251,3 +251,48 @@ $width: 100px;
     width: half(101px);
 }
 ```
+
+# Comment
+```html
+h1 {
+    // これはcssファイルには表示されない scssのみ使える
+    /* これは表示される  */
+    /*! compressedにしてもcssファイルに表示される */
+}
+```
+
+# import
+```html
+@import url("head.css");/* ファイルの数分ダウンロードしないといけない */
+@import "head.scss"; /* こうするとファイルはひとつで済むが、mapファイルやcssファイルができる */
+@import "_head.scss"; // cssファイルなどを生成しない
+@import "head"; // これでもいい（ファイル名は_head.scssだが）
+```
+
+# for
+```html
+// 5未満まで(1~4)
+@for $i from 1 to 5 {
+    .level_#{$i} {
+        font-size: 2px * $i;
+    }
+}
+
+// 5以下まで(1~5)
+@for $i from 1 through 5 {
+    .level_#{$i} {
+        font-size: 2px * $i;
+    }
+}
+```
+
+# while
+```html
+$i: 1;
+@while $i < 5 {
+    .level_#{$i} {
+        font-size: 2px * $i;
+    }
+    $i: $i + 1;
+}
+```
