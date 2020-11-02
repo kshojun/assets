@@ -77,7 +77,21 @@ header h1 {
   color: red;
 }
 ```
-headerタグ内のh1のみ
+headerタグ内のh1
+
+```html
+header > h1 {
+  color: red;
+}
+```
+headerタグ内のすぐ下のh1のみ
+
+```html
+header h1 + p {
+  color:red;
+}
+```
+headerのh1に隣接するpに適用
 
 # セレクタ適用の優先順位
 |element|score|
