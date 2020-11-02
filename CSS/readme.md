@@ -202,3 +202,34 @@ border-right-style: dotted;
 <div class="box"></div>
 <div class="box"></div>
 ```
+
+# Color Code
+24bitで表す
+```html
+.blue {
+  background-color: rgb(0, 0, 255); /* 0 ~ 255  */
+}
+
+.red {
+  background-color: #ff0000; /* 00 ~ ff */
+}
+```
+
+# Size指定
+Pixel（画素）他にもin, q, cmなどあるが、使わない
+```html
+.some {
+  width: 100px; /* 絶対指定 */
+  height: 50%; /* 画面の縦幅の50%(変動的） */
+}
+
+p {
+  font-size: 100px;
+}
+
+span {
+  font-size: 0.5em; /* 直前の大きさの半分（emは厳密には50%と違う） */
+  /* remは一番大元 r=root */
+}
+<p>HTML<span>CSS</span></p>
+```
