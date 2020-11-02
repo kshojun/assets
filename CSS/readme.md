@@ -238,5 +238,6 @@ span {
 ```html
 .box {
   -webkit-border-radius: 5px; /* border-radiusが勧告になる前にVendorが先に実装したもの -webkitなど border-radiusはあくまで例 */
+  /* -webkit : chrome, safari  -ms IE -o Opera -moz firefox */
 }
 ```
