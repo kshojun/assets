@@ -84,7 +84,7 @@ $selector: '.btn.btn-large';
 }
 ```
 
-#mixin
+# mixin
 ```html
 .box {
     width: 100px;
@@ -141,4 +141,60 @@ button {
     <img src="https://picsum.photos/200/200">
     <button>button</button>
 </div>
+```
+
+# extend
+```html
+.btn {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-alert {
+    background-color: #fcc;
+}
+<a href="#" class="btn">button</a>
+<a href="#" class="btn btn-alert">button</a> /* 指定が面倒 */
+```
+
+```html
+.btn {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-alert {
+    @extend .btn;
+    background-color: #fcc;
+}
+<a href="#" class="btn">button</a>
+<a href="#" class="btn-alert">button</a> /* btn-alertだけでいい、ただし#cccで描いたあとに#fccで上書きするので背景色だけ分けたい */
+```
+
+```html
+/* %はscss専用,cssにはない */
+%btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-default {
+    @extend %btn;
+    background-color: #ccc;
+}
+
+.btn-alert {
+    @extend %btn;
+    background-color: #fcc;
+}
+<a href="#" class="btn-default">button</a>
+<a href="#" class="btn-alert">button</a>
 ```
