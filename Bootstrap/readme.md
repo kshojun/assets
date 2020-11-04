@@ -1,4 +1,6 @@
-Bootstrapでやってくれてるので、reset.cssやsanitize.cssを別途、呼ばなくてもよい
+# いいとこ
+- Bootstrapでやってくれてるので、reset.cssやsanitize.cssを別途、呼ばなくてもよい
+- CSSを書かなくてもclass指定でいろいろやってくれる
 
 # Grid System
 ```html
@@ -86,6 +88,47 @@ Bootstrapでやってくれてるので、reset.cssやsanitize.cssを別途、�
         <img src="https://picsum.photos/1200/1200" class="img-fluid">
         <img src="https://picsum.photos/1200/1200" class="img-fluid rounded">
         <img src="https://picsum.photos/1200/1200" class="img-thumbnail">
+    </div>
+</body>
+</html>
+```
+
+# component
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bootstrap test</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container mt-2">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a href="" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Company</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="jumbotron mt-1">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+        
+        <button class="btn btn-primary">button</button>
     </div>
 </body>
 </html>
