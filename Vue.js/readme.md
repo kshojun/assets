@@ -247,3 +247,52 @@ xxx.github.io/repository/ というリンクができるのでこれを公開す
     </body>
 </html>
 ```
+
+# Component
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <style>
+        .alert {
+            background-color: #fcc;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid black;
+        }
+    </style>
+    <title>vue.js sample</title>
+</head>
+<body>
+    <div id="app">
+        <alert-box>No Input</alert-box>
+        <alert-box>No Input</alert-box>
+        <alert-box>No Input</alert-box>
+    </div>
+    <script>
+        Vue.component('alert-box', {
+            template: `
+                <div class="alert" v-on:click="caution">
+                    <strong>Error!</strong>
+                    <slot></slot>
+                </div>
+            `,
+            methods: {
+                caution: function(e) {
+                    alert("caution")
+                }
+            }
+        })
+
+        const app = new Vue({
+            el: "#app",
+        })
+    </script>
+    </body>
+</html>
+```
