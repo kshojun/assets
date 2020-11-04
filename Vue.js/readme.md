@@ -70,3 +70,30 @@ xxx.github.io/repository/ というリンクができるのでこれを公開す
 [Vue.js](https://vuejs.org/index.html)  
 [Vue CLI](https://cli.vuejs.org/)  
 [Vue router](https://router.vuejs.org/)
+
+# Sample Code
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue.js sample</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "abc"
+            }
+        })
+    </script>
+</body>
+</html>
+```
