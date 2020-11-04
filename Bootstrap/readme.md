@@ -1,3 +1,5 @@
+Bootstrapでやってくれてるので、reset.cssやsanitize.cssを別途、呼ばなくてもよい
+
 # Grid System
 ```html
 <!DOCTYPE html>
@@ -28,6 +30,62 @@
             <div class="box1 col-8 offset-2">box1</div>
             <div class="box2 col-12">box2</div>
         </div>
+    </div>
+</body>
+</html>
+```
+
+# table, img
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bootstrap test</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>header</h1>
+        <h2>header</h2>
+        <h3>header</h3>
+        <table class="table table-dark">
+            <tr>
+                <th>head</th>
+                <td>body</td>
+            </tr>
+            <tr>
+                <th>head</th>
+                <td>body</td>
+            </tr>
+        </table>
+
+        <table class="table table-striped">
+            <tr>
+                <th>head</th>
+                <td>body</td>
+            </tr>
+            <tr>
+                <th>head</th>
+                <td>body</td>
+            </tr>
+        </table>
+    
+        <p>HTML code : <code>h1</code></p>
+
+        <pre><code>
+            document.write("hello");
+        </code></pre>
+
+        <p><kbd>c</kbd>キーを押してくれ</p>
+
+        <img src="https://picsum.photos/1200/1200" class="img-fluid">
+        <img src="https://picsum.photos/1200/1200" class="img-fluid rounded">
+        <img src="https://picsum.photos/1200/1200" class="img-thumbnail">
     </div>
 </body>
 </html>
