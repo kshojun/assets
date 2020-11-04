@@ -199,3 +199,43 @@ xxx.github.io/repository/ というリンクができるのでこれを公開す
     </body>
 </html>
 ```
+
+# v-for
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .error {
+            color:red;
+        }
+    </style>
+    <title>vue.js sample</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="data in arrs">
+                {{ data.name }}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                arrs: [
+                    {name: "a"},
+                    {name: "b"},
+                    {name: "c"}
+                ]
+            }
+        })
+    </script>
+    </body>
+</html>
+```
