@@ -71,7 +71,7 @@ xxx.github.io/repository/ というリンクができるのでこれを公開す
 [Vue CLI](https://cli.vuejs.org/)  
 [Vue router](https://router.vuejs.org/)
 
-# Sample Code
+# Basic Code
 ```html
 <!DOCTYPE html>
 <html lang="ja">
@@ -95,5 +95,68 @@ xxx.github.io/repository/ というリンクができるのでこれを公開す
         })
     </script>
 </body>
+</html>
+```
+
+# v-if
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue.js sample</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="error">ERROR</p>
+        {{ message }}
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                message: "abc",
+                error: true
+            }
+        })
+    </script>
+</body>
+</html>
+```
+
+# 属性変更
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .error {
+            color:red;
+        }
+    </style>
+    <title>vue.js sample</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <p {{ error_class }} タグの中では{{ }} は効かない>{{ message }}</p> -->
+        <p v-bind:class="error_class">{{ message }}</p>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                error_class: "error",
+                message: "abc"
+            }
+        })
+    </script>            
+    </body>
 </html>
 ```
