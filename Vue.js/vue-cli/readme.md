@@ -9,6 +9,16 @@ vue --version
 vue create vue-app
 ```
 
+# 開発時
+```bash
+npm run serve
+```
+
+# 配布するときはDeploy
+```bash
+npm run build
+```
+
 # Vuetify Plugin
 Vue.jsのBootstrapみたいなもの
 
