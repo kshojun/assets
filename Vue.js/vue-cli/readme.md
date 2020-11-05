@@ -13,6 +13,7 @@ vue create vue-app
 ```bash
 npm run serve
 ```
+localhost:8080でアクセスする
 
 # 配布するときはDeploy
 ```bash
