@@ -3,7 +3,15 @@
 
 # Installation
 ```bash
-sudo npm install -g @vue/cli
+# vuetify使うためversionを落とす
+sudo npm install -g @vue/cli@3.5.1
 vue --version
 vue create vue-app
+```
+
+# Vuetify Plugin
+Vue.jsのBootstrapみたいなもの
+
+```bash
+vue add vuetify
 ```
