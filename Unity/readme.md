@@ -420,3 +420,11 @@ Destroy(object, 2.0f);
 // gameObjectは自身の所属してるオブジェクト(銃弾に適用して衝突したら消えるとか)
 Destory(gameObject);
 ```
+
+# keytool
+Windowsで使うために、Java Runtime Environmentをインストールする
+```bash
+echo %path% or path
+set PATH=%PATH%;c:\Program Files\Java\jre1.8.0_271\bin
+keytool -list -v -alias pong -keystore user.keystore
+```
