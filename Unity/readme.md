@@ -428,3 +428,4 @@ echo %path% or path
 set PATH=%PATH%;c:\Program Files\Java\jre1.8.0_271\bin
 keytool -list -v -alias pong -keystore user.keystore
 ```
+firebaseのフィンガープリントでSHA1かSHA256を使えばいい
