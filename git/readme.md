@@ -13,3 +13,7 @@ shellは
 cd /home/project
 git --git-dir=.git pull
 ```
+# commit rule
+- フェーズごとにコミットする
+- コミット内容を構造的に
+https://udacity.github.io/git-styleguide/
