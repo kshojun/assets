@@ -7,3 +7,11 @@
 $ npm -g install typescript
 $ tsc -v
 ```
+
+# 自動コンパイル
+```bash
+$ mkdir workspace
+$ cd workspace
+$ tsc --init
+# Shitf + Ctrl + B > Watch
+```
