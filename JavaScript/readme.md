@@ -4,39 +4,37 @@
 
 # 配列
 ```js
+// declare
 const fruits = [1, 2];
 
+// for
 for (let i = 0; i < fruits.length; i++) {
   console.log(fruits[i]);
 }
 
+// for...of
 for (let fruit of fruits) {
   console.log(fruit);
 }
 
-fruits.forEach(function (fruit, index) {
-  console.log(fruit, index);
-});
-
+// forEach
 fruits.forEach((fruit, index) => {
   console.log(fruit, index);
 });
 
+// forEach
 fruits.forEach((fruit, index) => console.log(fruit, index));
 
-// 後ろに入れたり出したり
+// 後ろから入れる
 fruits.push(3, 4);
-console.log(fruits);
 
+// 後ろから取り出す
 fruits.pop();
-console.log(fruits);
 
 // 前に入れたり出したり（遅い）
 fruits.unshift(5);
-console.log(fruits);
 
 fruits.shift();
-console.log(fruits);
 
 // １から１個消す
 fruits.splice(1, 1);
@@ -44,13 +42,16 @@ fruits.splice(1, 1);
 // 1から1個消して、6,7を入れる
 fruits.splice(1, 1, 6, 7);
 
-const fruits2 = [10,11];
-const newFruit = fruits.concat(fruits2);
+// 配列をつなげる
+const arr = [1,2];
+const arr2 = [3,4];
+const newArr = arr.concat(arr2);
 
 // Searching
 console.log(fruits.indexOf(10)); //  10のindex
 console.log(fruits.indexOf(100)); //  -1
 
+// Check if including
 console.log(fruits.includes(10)); // true
 console.log(fruits.includes(100)); // false
 
@@ -82,7 +83,14 @@ const result = fruits.splice(2); // result [3,4,5]  fruits [1,2]
 // slice
 const result = fruits.slice(2, 5); // result [3,4,5] fruits [1,2,3,4,5]
 
-// find
+// find(array)
+const arr = [
+  { "type": "abc", "value": "1" },
+  { "type": "abc", "value": "2" },
+]
+const result = arr.find((v) => { return v.value == 1 })
+
+// find(object)
 class Student {
   constructor(name, age, enrolled, score) {
     this.name = name;
@@ -266,6 +274,7 @@ fetchN
 .then(num => console.log(num));
 ```
 
+```javascript
 // Resolving callback hell using promise
 class UserStorage {
   loginUser(id, password) {  
@@ -327,5 +336,4 @@ async function fetchUser() {
 fetchUser().catch(error => {
   console.log(error);
 });
-
 ```
