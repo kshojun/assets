@@ -1,8 +1,12 @@
+### Table of Contents  
+- [配列](#array)
+
 # 参照渡し・値渡し
 - オブジェクトと配列は参照渡し、それ以外は値渡し（他の言語のそれとは違う）
 - 配列はslice, concatしてから渡すと値渡しになる
 
 # 配列
+<a name="array" />
 ```js
 // declare
 const fruits = [1, 2];
