@@ -36,10 +36,10 @@ fruits.push(3, 4);
 // 後ろから取り出す
 fruits.pop();
 
-// 前に入れたり出したり（遅い）
+// 配列の先頭に要素を追加する（遅い）
 fruits.unshift(5);
 
-// shift
+// 配列の先頭の要素を削除する　shift
 fruits.shift();
 
 // 指定要素の削除 １から１個消す
@@ -85,6 +85,10 @@ const result = fruits.splice(2); // result [3,4,5]  fruits [1,2]
 
 // slice 自身は影響しない
 const result = fruits.slice(2, 5); // result [3,4,5] fruits [1,2,3,4,5]
+
+// 値を埋める fill
+const array = [1, 2, 3, 4];
+console.log(array1.fill(0, 2, 4));// fill with 0 from position 2 until position 4
 
 // find(array)
 const arr = [
