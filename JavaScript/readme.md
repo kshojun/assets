@@ -39,12 +39,13 @@ fruits.pop();
 // 前に入れたり出したり（遅い）
 fruits.unshift(5);
 
+// shift
 fruits.shift();
 
 // １から１個消す
 fruits.splice(1, 1);
 
-// 1から1個消して、6,7を入れる
+// 指定要素の入れ替え 1から1個消して、6,7を入れる
 fruits.splice(1, 1, 6, 7);
 
 // 配列をつなげる
