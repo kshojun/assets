@@ -11,6 +11,7 @@
 # Installation of Expo CLI
 ```bash
 $ npm install expo-cli -g
+$ expo -V
 $ expo init new-project
 $ cd new-project
 $ expo start
