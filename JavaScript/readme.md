@@ -42,7 +42,7 @@ fruits.unshift(5);
 // shift
 fruits.shift();
 
-// １から１個消す
+// 指定要素の削除 １から１個消す
 fruits.splice(1, 1);
 
 // 指定要素の入れ替え 1から1個消して、6,7を入れる
