@@ -64,10 +64,7 @@ console.log(fruits.includes(100)); // false
 fruits.push(11);
 console.log(fruits.indexOf(1)); //  0
 console.log(fruits.lastIndexOf(1)); // 6
-```
 
-# Array APIs
-```js
 // join
 const fruits = [1, 2, 3];
 const string = fruits.join('|'); // 1|2|3
@@ -77,15 +74,15 @@ const fruits = '1,2,3';
 const array = fruits.split(','); // [1,2,3]
 const array = fruits.split(',', 2); // [1,2]
 
-// reverse
+// reverse 自身も影響
 const fruits = [1, 2, 3];
 const result = fruits.reverse(); // [3,2,1] 返却値もfruits自体も変わる
 
-// splice
+// splice 自身も影響
 const fruits = [1, 2, 3, 4, 5];
 const result = fruits.splice(2); // result [3,4,5]  fruits [1,2]
 
-// slice
+// slice 自身は影響しない
 const result = fruits.slice(2, 5); // result [3,4,5] fruits [1,2,3,4,5]
 
 // find(array)
