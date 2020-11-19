@@ -5,9 +5,9 @@
 - オブジェクトと配列は参照渡し、それ以外は値渡し（他の言語のそれとは違う）
 - 配列はslice, concatしてから渡すと値渡しになる
 
-# 配列
 <a name="array" />
 
+# 配列
 ```js
 // declare
 const fruits = [1, 2];
