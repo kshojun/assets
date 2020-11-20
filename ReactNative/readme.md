@@ -1,10 +1,10 @@
 # Expo CLI
-- Third-party service(free)
+- Third-Party service(free)
 - Lots of convinience and utility features
 - But limited to the Expo Ecosystem
 
 # React Native CLI
-- React Native Team
+- By React Native Team
 - Bare-bone development(only a basic setup)
 - Almost no convinience or utility features
 
