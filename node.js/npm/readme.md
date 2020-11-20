@@ -1,4 +1,4 @@
-# n
+# node.js version管理
 ```bash
 # Confirm node.js version
 $ node -v
@@ -13,6 +13,11 @@ $ n latest or n stable
 $ n
 # List of installed node.js
 $ n ls
+```
+
+# npm自体のVer上げる
+```bash
+$ npm install -g npm
 ```
 
 # npm list -gでパッケージが見つからずエラー
