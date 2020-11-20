@@ -17,7 +17,7 @@ $ n ls
 
 # npm自体のVer上げる
 ```bash
-$ npm install -g npm
+$ npm install -g npm@latest
 ```
 
 # npm list -gでパッケージが見つからずエラー
