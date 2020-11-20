@@ -20,6 +20,12 @@ $ n ls
 $ npm install -g npm@latest
 ```
 
+# npmが壊れたら
+globalのnode_modulesを消して、
+```bash
+$ npm install -g npm@latest
+```
+
 # npm list -gでパッケージが見つからずエラー
 ```bash
 npm update -g
