@@ -14,5 +14,6 @@ $ npm install expo-cli -g
 $ expo -V
 $ expo init new-project
 $ cd new-project
+# npm 6以上必要
 $ expo start
 ```
