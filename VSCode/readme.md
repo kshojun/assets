@@ -39,3 +39,9 @@ $ code .
 or
 VSCode起動済みの場合はcmdでwsl打つ
 ```
+
+# wslのsudoパスワードがわからない場合
+```bash
+# cmd.exe上で以下を実行してルートになればいい
+wsl -u root
+```
