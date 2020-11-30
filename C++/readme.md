@@ -40,13 +40,13 @@ enum stringCode {
     eWilma,
 };
 
-string_code h(std::string const& s) {
+string_code eval(std::string const& s) {
     if (s == "Fred") return eFred;
     if (s == "Barney") return eBarney;
 }
 
 void foo() {
-    switch (h(stringValue)) {
+    switch (eval(stringValue)) {
     case eFred:
         ...
     case eBarney:
