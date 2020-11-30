@@ -30,3 +30,27 @@ printf("%.8lf\n", d); // 1.00000005
 #include <bits/stdc++.h>
 M_PI
 ```
+
+# switch ~ case
+stringは使えないので以下のようにする
+```c++
+enum stringCode {
+    eFred,
+    eBarney,
+    eWilma,
+};
+
+string_code h(std::string const& s) {
+    if (s == "Fred") return eFred;
+    if (s == "Barney") return eBarney;
+}
+
+void foo() {
+    switch (h(stringValue)) {
+    case eFred:
+        ...
+    case eBarney:
+        ...
+    }
+}
+```
