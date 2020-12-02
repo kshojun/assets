@@ -20,6 +20,16 @@ node -v
 npm -v
 ```
 
+# nodebrew ver指定してインストール
+```bash
+nodebrew ls-remote
+nodebrew install vxx.xx.xx
+nodebrew list
+nodebrew use vxx.xx.xx
+node -v
+npm -v
+```
+
 # .bash_profileにPATHを通す
 ```
 if [ -f ~/.bashrc ] ; then
