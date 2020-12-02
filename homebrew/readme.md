@@ -32,8 +32,12 @@ npm -v
 
 # .bash_profileにPATHを通す
 ```
+$ vi ~/.bash_profile
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
 export PATH=$PATH:$HOME/.nodebrew/current/bin
+
+$ source .bash_profile
+# ログインシェルがbashにすれば次回起動時から適用
 ```
