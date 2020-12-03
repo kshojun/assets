@@ -35,3 +35,32 @@ const elm = (
 
 ReactDOM.render(elm, document.getElementById("root"));
 ```
+
+# props
+```js
+function Show(props) {
+    return (
+        <h3>
+            Name is {props.name}
+        </h3>
+    );
+}
+
+Show.defaultProps = {
+    name: "defaultName"
+}
+
+function App() {
+    return (
+        <main>
+            <Show name="a" />
+            <Show name="b" />
+            <Show name="c" />
+        </main>
+    );
+}
+
+const elm = <Show name="MyName" />
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
