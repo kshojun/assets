@@ -37,6 +37,7 @@ ReactDOM.render(elm, document.getElementById("root"));
 ```
 
 # props
+値が変更しないとき
 ```js
 function Show(props) {
     return (
@@ -63,4 +64,40 @@ function App() {
 const elm = <Show name="MyName" />
 
 ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+# state
+値が変わる可能性のあるとき、値が変わったら再度レンダリングしてくれる
+```js
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date()
+        };
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+    }
+
+    componentDidMount() {
+        this.timerID = setInterval(() => this.tick(), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    render() {
+        return ( 
+            <h3>
+                {this.state.date.toLocaleTimeString()}
+            </h3>
+        );    
+    }
+}
+ReactDOM.render(<Clock/>, document.getElementById('root'));
 ```
