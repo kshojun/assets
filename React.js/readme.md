@@ -37,6 +37,7 @@ ReactDOM.render(elm, document.getElementById("root"));
 ```
 
 # props
+画面にデータをレンダリングするためにはprops, stateを使う   
 値が変更しないとき
 ```js
 function Show(props) {
@@ -103,9 +104,18 @@ ReactDOM.render(<Clock/>, document.getElementById('root'));
 ```
 
 # life cycle
-コンポネントがDOMに挿入されるまでの過程
+### コンポネントがDOMに挿入されるまでの過程
 1. constructor()
 2. componentWillMount()
 3. render()
 4. componentDidMount()   
 コンポネントがすべて構成された直後のcomponentDidMount()にてAPI呼び出しを行えばいい
+
+### データが変更された場合
+1. shouldComponentUpdate()
+2. componentWillUpdate()
+3. render()
+4. componentDidUpdate()   
+
+### コンポネントが解除されたとき   
+componentWillUnmount()
