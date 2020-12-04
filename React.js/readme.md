@@ -101,3 +101,11 @@ class Clock extends React.Component {
 }
 ReactDOM.render(<Clock/>, document.getElementById('root'));
 ```
+
+# life cycle
+コンポネントがDOMに挿入されるまでの過程
+1. constructor()
+2. componentWillMount()
+3. render()
+4. componentDidMount()   
+コンポネントがすべて構成された直後のcomponentDidMount()にてAPI呼び出しを行えばいい
