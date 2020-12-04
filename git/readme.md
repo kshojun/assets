@@ -17,3 +17,14 @@ git --git-dir=.git pull
 - フェーズごとにコミットする
 - コミット内容を構造的に
 https://udacity.github.io/git-styleguide/
+
+# リモートレポジトリ追加
+```bash
+$ git remote add origin https://github.com/kshojun/tutorial-react.git
+$ git remote -v
+# 初回のみ
+$ git push --set-upstream origin master
+# 次回から
+$ git push
+```
+
