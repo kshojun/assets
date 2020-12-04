@@ -30,5 +30,6 @@ $ git push
 
 # usernameとパスワードを毎回入れたくない
 ```bash
-$ git push 'https://[github_id]:[password]@github.com/kshojun/tutorial-react.git'
+# usernameは@github.comは不要
+$ git push 'https://[username]:[password]@github.com/kshojun/tutorial-react.git'
 ```
