@@ -119,3 +119,39 @@ ReactDOM.render(<Clock/>, document.getElementById('root'));
 
 ### コンポネントが解除されたとき   
 componentWillUnmount()
+
+# API呼び出し例
+```js
+class ApiExample extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: ''
+        }
+    }
+
+    render() {
+        return (
+            <h3>
+                {this.state.data ? this.state.data : 'Loading...'}
+            </h3>
+        );
+    }
+
+    callApi() {
+        fetch('https://jsonplaceholder.typicode.com/todos/2')
+        .then(response => response.json())
+        .then(json => {
+            this.setState(
+                {data: json.title}
+            )
+        })
+    }
+
+    componentDidMount() {
+        this.callApi();
+    }
+}
+
+ReactDOM.render(<ApiExample/>, document.getElementById('root'));
+```
