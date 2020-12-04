@@ -182,3 +182,9 @@ class EventHandling extends React.Component {
 
 ReactDOM.render(<EventHandling/>, document.getElementById('root'));
 ```
+
+# create-react-appで開発する
+```bash
+$ npm install -g create-react-app
+$ create-react-app [project_name]
+```
