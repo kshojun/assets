@@ -155,3 +155,30 @@ class ApiExample extends React.Component {
 
 ReactDOM.render(<ApiExample/>, document.getElementById('root'));
 ```
+
+# event handling
+```js
+class EventHandling extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isToggle: true
+        }
+    }
+
+    // binding処理
+    handleEvent = () => {
+        this.setState(
+            {isToggle: !this.state.isToggle}
+        )
+    }
+
+    render() {
+        return (
+            <button onClick={this.handleEvent}>{this.state.isToggle ? 'on' : 'off'}</button>
+        );
+    }
+}
+
+ReactDOM.render(<EventHandling/>, document.getElementById('root'));
+```
