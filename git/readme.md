@@ -28,3 +28,7 @@ $ git push --set-upstream origin master
 $ git push
 ```
 
+# usernameとパスワードを毎回入れたくない
+```bash
+$ git push 'https://[github_id]:[password]@github.com/kshojun/tutorial-react.git'
+```
