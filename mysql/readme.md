@@ -47,9 +47,19 @@ $ mysql_secure_installation
 全部y
 
 $ sudo vim /etc/my.cnf
-： # 下記2行を末尾に追加
-character-set-server=utf8
+# 以下を追加
+[mysqld]
 default_password_lifetime=0
+character-set-client=utf8
+character-set-connection=utf8
+character-set-database=utf8
+character-set-results=utf8
+character-set-server=utf8
+character-set-system=utf8
+
+[client]
+default-character-set=utf8
+
 $ sudo systemctl restart mysqld
 ```
 
@@ -98,29 +108,4 @@ rm -rf /var/lib/mysql
 systemctl start mysqld
 cat /var/log/mysqld.log | grep 'temporary password'
 ログインできるはず
-```
-
-```sql
-UPDATE master_an ma
-INNER JOIN (
-	SELECT
-		ma.id
-		, mq.code
-		, (
-			SELECT count(0) FROM master_an inma
-			WHERE inma.question_id = ma.question_id
-				AND	inma.id <= ma.id
-		) num
-	FROM master_q mq
-	INNER JOIN master_an ma
-		ON	ma.question_id = mq.id
-) uni
-	ON	uni.id = ma.id
-SET
-	ma.code = concat(uni.code,'-',uni.num)
-	, ma.number = uni.num;
-
-ALTER TABLE `master_an`
-ADD UNIQUE INDEX (`code`) USING BTREE ,
-ADD UNIQUE INDEX (`question_id`, `number`) USING BTREE;
 ```
