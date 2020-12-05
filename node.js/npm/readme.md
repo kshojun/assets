@@ -30,3 +30,15 @@ $ npm install -g npm@latest
 ```bash
 npm update -g
 ```
+
+# npm install
+dependencies, devDependencies両方インストールする
+
+# npm install --production
+dependenciesのみインストールする
+
+# npm install --save package
+dependenciesに書き込む
+
+# npm install --save-dev package
+devDependenciesに書き込む
