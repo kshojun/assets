@@ -26,6 +26,9 @@ $ npm install express
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
   }
 }
 ```
