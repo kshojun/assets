@@ -50,12 +50,7 @@ $ sudo vim /etc/my.cnf
 # 以下を追加
 [mysqld]
 default_password_lifetime=0
-character-set-client=utf8
-character-set-connection=utf8
-character-set-database=utf8
-character-set-results=utf8
 character-set-server=utf8
-character-set-system=utf8
 
 [client]
 default-character-set=utf8
