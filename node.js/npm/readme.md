@@ -42,3 +42,10 @@ dependenciesに書き込む
 
 # npm install --save-dev package
 devDependenciesに書き込む
+
+# よく使うライブラリ
+- body-parser
+- express
+- axios
+- mysql
+- multer
