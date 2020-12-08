@@ -68,7 +68,8 @@ ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 # state
-値が変わる可能性のあるとき、値が変わったら再度レンダリングしてくれる
+値が変わる可能性のあるとき、値が変わったら再度レンダリングしてくれる   
+render()内ではstate変更してはいけない
 ```js
 class Clock extends React.Component {
     constructor(props) {
@@ -188,3 +189,6 @@ ReactDOM.render(<EventHandling/>, document.getElementById('root'));
 $ npm install -g create-react-app
 $ create-react-app [project_name]
 ```
+
+# React Hooks
+stateはclass componentでしか使えないが、Hooksを使うとfunction componentでも使えるようになる
