@@ -85,8 +85,11 @@ ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 # state
-値が変わる可能性のあるとき、値が変わったら再度レンダリングしてくれる   
-render()内ではstate変更してはいけない
+- 値が変わる可能性のあるとき、値が変わったら再度レンダリングしてくれる   
+- render()内ではstate変更してはいけない
+- class componentが前提
+- constructor内でobject型で書く
+
 ```js
 class Clock extends React.Component {
     constructor(props) {
@@ -208,4 +211,71 @@ $ create-react-app [project_name]
 ```
 
 # React Hooks
-stateはclass componentでしか使えないが、Hooksを使うとfunction componentでも使えるようになる
+- stateはclass componentでしか使えないが、Hooksを使うとfunction componentでも使えるようになる
+- class componentではthisを使ってるが、分かりにくい
+- functional componentを推奨されている
+
+# useState使い方
+stateを使える
+```js
+import React, {useState} from 'react'
+
+const [isValue, wrapValue] = useState(false) // 初期値
+
+<input ... onClick={() => wrapValue(!isValue)} />
+```
+
+# useEffect
+### 概要
+- ライフサイクルが使える
+- 機能ごとにまとめられる
+
+### 代替できるmethods
+- componentDidMount
+- componentDidUpdate
+- componentWillUnmount
+
+### 基本形(レンダーごと）
+```js
+useEffect(() => {
+  // レンダーごとに呼ばれる
+  console.log('called by render');
+  return () => {
+    // unmount時に呼ばれる(clean up)
+    console.log('unmounting');
+  }
+})
+```
+
+### マウント時のみ
+- 第二引数の配列内の値を前回レンダー時と比較、変更あれば実行
+- 空配列を渡すと最初の１回のみ実行される
+```js
+useEffect(() => {
+  console.log('called by render')
+}, [])
+```
+
+### マウントとアンマウント
+- 空配列を渡すと最初の１回のみ実行される
+```js
+useEffect(() => {
+  // マウント時
+  console.log('called by render')
+  return () => {
+    // unmount時
+    console.log('unmouted')
+  }
+}, [])
+```
+
+### 特定のレンダー時
+- マウント時に実行される
+- limitの値が変わったとき、実行される
+```js
+const [limit, release] = useState(true);
+
+useEffect(() => {
+  console.log('render')
+}, [limit])
+```
