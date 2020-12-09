@@ -16,6 +16,19 @@ JSXをコンパイルするためにbabelも必要、typeはtext/babelにする
 <script type="text/babel" defer src="./main.js"></script>
 ```
 
+# Component書き方
+### Functional
+- ES6のアロー関数
+- stateless
+- prposを渡す
+- JSXをreturn
+
+### Class
+- React.Componentを継承
+- life cycle, state
+- propsにthis必要
+- render内でJSXをreturn
+
 # Class vs Function
 ```js
 // class
