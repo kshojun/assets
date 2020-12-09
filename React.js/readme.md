@@ -3,6 +3,10 @@
 - Component-based
 - Learn Once, Write Anywhere
 
+# JSX
+- そのままではブラウザで認識できないのでトランスコンパイル必要
+- Babel, TypeScript, CoffeeScriptなど
+
 # CDN
 JSXをコンパイルするためにbabelも必要、typeはtext/babelにする
 ```html
