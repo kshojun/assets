@@ -17,3 +17,9 @@ $ cd new-project
 # npm 6以上必要
 $ expo start
 ```
+
+# Installation of React Native CLI
+```bash
+$ sudo apt install openjdk-8-jdk
+$ npm install -g react-native-cli
+```
