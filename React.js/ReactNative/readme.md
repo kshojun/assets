@@ -18,6 +18,13 @@ $ cd new-project
 $ expo start
 ```
 
+# eslintを導入
+```bash
+$ npm i --save-dev eslint
+$ eslint --init
+
+```
+
 # Installation of React Native CLI
 ```bash
 $ sudo apt install openjdk-8-jdk
